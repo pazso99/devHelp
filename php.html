@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="scripts/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Help</title>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg navbar-custom">
+    <button class="navbar-toggler m-auto" type="button" data-toggle="collapse" data-target="#navbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Javascript</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="index.html">Javascript</a>
+                    <a class="dropdown-item" href="javascript-promises-fetch.html">Promises / Fetch</a>
+                    <a class="dropdown-item" href="typescript.html">Typescript</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Node.js</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="nodejs.html">Node.js</a>
+                    <a class="dropdown-item" href="express.html">Express</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="react.html">React</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">CSS</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="sass.html">Sass</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">PHP</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="php.html">PHP</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ajax.html">AJAX</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="git.html">Git</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">More</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="internet.html">Internet</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="wrapper">
+    <h1 class="title">PHP</h1>
+    <div class="search">
+        <input type="text">
+    </div>
+
+<!------------------- VARIABLES ----------------------->
+<div class="code-part"><h3 class="code-title">Variables</h3>
+<p>		- Prefix $<br>
+    - Start with a letter or an underscore<br>
+    - Only letters, numbers and underscores<br>
+    - Case sensitive</p>
+
+<hr class="line">
+
+<p>data types</p>
+<p>String<br>
+    Integers<br>
+    floats<br>
+    Booleans<br>
+    Arrays<br>
+    Objects<br>
+    NULL<br>
+    Resource</p>
+<p>constant</p>
+<pre class="code">
+define('GREETING', 'Hello Everyone', true);
+echo greeting;
+</pre>
+</div>
+
+<!------------------- GLOBAL VARS ----------------------->
+<div class="code-part"><h3 class="code-title">Global Variables - Superglobals</h3>
+<p>	Some predefined variables in PHP are "superglobals", which means that they are always accessible, regardless of scope - and you can access them from any function, class or file without having to do anything special.</p>
+
+<hr class="line">
+
+<p>data types</p>
+<p>$GLOBALS<br>
+    $_SERVER<br>
+    $_REQUEST<br>
+    $_POST<br>
+    $_GET<br>
+    $_FILES<br>
+    $_ENV<br>
+    $_COOKIE<br>
+    $_SESSION</p>
+
+
+<p>$_SERVER is a PHP super global variable which holds information about headers, paths, and script locations.</p>
+<pre class="code">
+    $_SERVER['PHP_SELF']	Returns the filename of the currently executing script
+    $_SERVER['GATEWAY_INTERFACE']	Returns the version of the Common Gateway Interface (CGI) the server is using
+    $_SERVER['SERVER_ADDR']	Returns the IP address of the host server
+    $_SERVER['SERVER_NAME']	Returns the name of the host server (such as www.w3schools.com)
+    $_SERVER['SERVER_SOFTWARE']	Returns the server identification string (such as Apache/2.2.24)
+    $_SERVER['SERVER_PROTOCOL']	Returns the name and revision of the information protocol (such as HTTP/1.1)
+    $_SERVER['REQUEST_METHOD']	Returns the request method used to access the page (such as POST)
+    $_SERVER['REQUEST_TIME']	Returns the timestamp of the start of the request (such as 1377687496)
+    $_SERVER['QUERY_STRING']	Returns the query string if the page is accessed via a query string
+    $_SERVER['HTTP_ACCEPT']	Returns the Accept header from the current request
+    $_SERVER['HTTP_ACCEPT_CHARSET']	Returns the Accept_Charset header from the current request (such as utf-8,ISO-8859-1)
+    $_SERVER['HTTP_HOST']	Returns the Host header from the current request
+    $_SERVER['HTTP_REFERER']	Returns the complete URL of the current page (not reliable because not all user-agents support it)
+    $_SERVER['HTTPS']	Is the script queried through a secure HTTP protocol
+    $_SERVER['REMOTE_ADDR']	Returns the IP address from where the user is viewing the current page
+    $_SERVER['REMOTE_HOST']	Returns the Host name from where the user is viewing the current page
+    $_SERVER['REMOTE_PORT']	Returns the port being used on the user's machine to communicate with the web server
+    $_SERVER['SCRIPT_FILENAME']	Returns the absolute pathname of the currently executing script
+    $_SERVER['SERVER_ADMIN']	Returns the value given to the SERVER_ADMIN directive in the web server configuration file (if your script runs on a virtual host, it will be the value defined for that virtual host) (such as someone@w3schools.com)
+    $_SERVER['SERVER_PORT']	Returns the port on the server machine being used by the web server for communication (such as 80)
+    $_SERVER['SERVER_SIGNATURE']	Returns the server version and virtual host name which are added to server-generated pages
+    $_SERVER['PATH_TRANSLATED']	Returns the file system based path to the current script
+    $_SERVER['SCRIPT_NAME']	Returns the path of the current script
+    $_SERVER['SCRIPT_URI']	Returns the URI of the current page    
+</pre>
+</div>
+
+<!------------------- Concatization STRING ------------------>
+<div class="code-part"><h3 class="code-title">Concatization</h3>
+<pre class="code">
+$string1 = 'Hello';
+$string2 = 'World';
+$greeting = $string1 .' '. $string2.'!';
+$greeting2 = "$string1 $string2";
+</pre>
+</div>
+
+<!------------------- LOOPS ---------------------------->
+<div class="code-part"><h3 class="code-title">Loops (for, while, do while)</h3>
+<p>while — Sets up conditions under which aloop executes </p>
+<pre class="code">
+$i = 0;
+
+while($i < 10){
+    echo $i;
+    echo '&lt;br&gt;';
+    $i++;
+}
+</pre>
+
+<p>do while — Similar to the while loop, however, it executes at least once and performs a check at the end to see if the condition is met to execute again</p>
+<pre class="code">
+$i = 0;
+
+do{
+    echo $i;
+    echo '&lt;br&gt;';
+    $i++;
+}
+
+while($i < 10);
+</pre>
+
+<p>for (initialization; condition for loop; increase after loop)</p>
+<pre class="code">
+for($i = 5; $i <= 10; $i++){
+    echo 'Number '.$i;
+    echo '&lt;br&gt;';
+}
+</pre>
+
+<p>forEach, for indexed arrays</p>
+<pre class="code">
+$people = array('Brad', 'Jose', 'William');
+
+foreach($people as $person){
+    echo $person;
+    echo '&lt;br&gt;';
+}
+</pre>
+<p>forEach, for associated arrays</p>
+<pre class="code">
+$people = array('Brad' => 'brad@gmail.com', 'Jose' => 'jose@gmail.com', 'William' => 'will@gmail.com');
+
+foreach($people as $person => $email){
+    echo $person.': '.$email;
+    echo '&lt;br&gt;';
+}
+</pre>
+</div>
+
+<!------------------- IF ------------------------------->
+<div class="code-part"><h3 class="code-title">IF</h3>
+<pre class="code">
+$num = 4;
+
+if($num == 5){
+    echo '5 passed';
+} elseif ($num == 6){
+    echo '6 passed';
+} else {
+    echo 'did not pass';
+}
+</pre>
+</div>
+
+<!------------------- TERNARY OPERATOR ------------------>
+<div class="code-part"><h3 class="code-title">Ternary operator</h3>
+<p>condition ? 'true' : 'false';</p>
+<pre class="code">
+$marks=40;
+echo ($marks>=40) ? "pass" : "Fail";
+</pre>
+</div>
+
+<!------------------- SWITCH ---------------------------->
+<div class="code-part"><h3 class="code-title">Switch</h3>
+<pre class="code">
+$favColor = 'yellow';
+
+switch($favColor){
+    case 'red':
+        echo 'Your favorite color is red';
+        break;
+    case 'blue':
+        echo 'Your favorite color is blue';
+        break;
+    case 'green':
+        echo 'Your favorite color is green';
+        break;
+    default:
+        echo 'Your favorite color is something else';
+}
+</pre>
+</div>
+
+<!------------------- OPERATORS ------------------------->
+<div class="code-part"><h3 class="code-title">Operators</h3>
+<p>Basic operators</p>
+<pre class="code">
++  — Addition
+-  — Subtraction 
+*  — Multiplication 
+/  — Division 
+%  — Modulus (remainder ) 
+++  — Increment numbers 
+--  — Decrement numbers 
+</pre>
+
+
+<p>Comparison Operators</p>
+<pre class="code">
+== — Equal to 
+=== — Equal value and equal type 
+!= — Not equal 
+!== — Not equal value or not equal type 
+> — Greater than 
+< — Less than 
+>= — Greater than or equal to 
+<= — Less than or equal to 
+? — Ternary operator 
+</pre>
+
+<p>Logical Operators</p>
+<pre class="code">
+&& — Logical and 
+|| — Logical or 
+! — Logical not
+</pre>
+</div>
+
+<!------------------- FUNCTIONS ------------------------->
+<div class="code-part"><h3 class="code-title">Functions</h3>
+<p><b>take an input( w/ parameter), do something, produce output when called</b></p>
+<p>Function declarition</p>
+<pre class="code">
+function simpleFunction(){
+    echo 'Hello World';
+}
+simpleFunction();
+</pre>
+
+<p>Function With Param</p>
+<pre class="code">
+// default value
+function sayHello($name = 'World'){
+    echo "Hello $name";
+}
+
+sayHello('Joe');
+
+
+// Return 
+function addNumbers($num1, $num2){
+    return $num1 + $num2;
+}
+
+echo addNumbers(2,3);
+</pre>
+
+
+<p>By reference</p>
+<pre class="code">
+$myNum = 10;
+
+function addFive($num){
+    $num += 5;
+}
+
+function addTen(&$num){
+    $num += 10;
+}
+
+addFive($myNum);    // print $myNum -> 10
+
+addTen($myNum);     // print $myNum -> 20
+
+</pre>
+
+</div>
+
+<!------------------- ARRAYS ----------------------------->
+<div class="code-part"><h3 class="code-title">Arrays</h3>
+<p>Array - Variable that holds multiple values<br>
+	
+		- Indexed<br>
+		- Associative<br>
+		- Multi-dimensional
+    </p>
+<p>Indexed arrays - Arrays with a numeric index</p>
+<pre class="code">
+$people = array('Kevin', 'Jeremy', 'Sara');
+$ids = array(23, 55, 12);
+$cars = ['Honda', 'Toyota', 'Ford'];
+$cars[3] = 'Chevy';
+$cars[] = 'BMW';
+</pre>
+
+<p>Associative arrays - Arrays with named keys</p>
+<pre class="code">
+$people = array('Brad' => 35, 'Jose' => 32, 'William' => 37);
+$ids = [22 => 'Brad', 44 => 'Jose', 63 => 'William'];
+
+echo $people['Brad'];
+echo $ids[22];
+$people['Jill'] = 42;
+echo $people['Jill'];
+</pre>
+
+<p>Multi-Dimensional arrays</p>
+<pre class="code">
+$cars = array(
+    array('Honda', 20, 10),
+    array('Toyota', 30, 20),
+    array('Ford', 23, 12)
+);
+
+echo $cars[1][2];
+</pre>
+
+<pre class="code">
+$user = array(
+    "name" => array(
+        "first" => "Zsolt",
+        "last" => "Pap"
+    ),
+    "location" => array(
+        "country" => "Hungary",
+        "address" => array(
+            "city" => "Szeghalom",
+            "number" => 120
+        )
+    ),
+    "age" => 20
+);
+</pre>
+
+<p>array properties/methods</p>
+<pre class="code">
+count($cars);
+print_r($cars);
+var_dump($cars);
+</pre>
+</div>
+
+<!------------------- STRINGS ---------------------------->
+<div class="code-part"><h3 class="code-title">Strings</h3>
+<p><b>Basic properties and methods</b></p>
+
+<pre class="code">
+# substr() - Returns a portion of a string
+substr('Hello', 1, 3);
+substr('Hello', -2);
+
+# strlen() - Returns the length of a string
+strlen('Hello World');
+    
+# strpos() - Finds the position of the first occurence of a sub string
+strpos('Hello World', 'o');
+
+# strrpos() - Finds the position of the last occurence of a sub string
+    strrpos('Hello World', 'o');
+
+# trim() - Strips whitespace
+$text = 'Hello World              ';
+trim($text);
+
+# strtoupper - Makes everything uppercase
+strtoupper('Hello World');
+
+# strtolower -  Makes everything lowercase
+strtolower('Hello World');
+
+# ucwords() - Capitalize every word
+ucwords('hello world');
+
+# str_replace() - Replace all occurences of a search string with a replacement
+$text = 'Hello World';
+$output = str_replace('World', 'Everyone', $text);
+
+# is_string() - Check if string
+$val = '22';
+$output = is_string($val);
+
+
+# gzcompress() - Compress a string
+$string =
+    "Lorem ipsum dolor sit amet, consectetur
+    adeo congue mollis.
+    Nullam in neque eget metus hendrerit scelerisque
+    eu non enim. Ut malesuada lacus eu nulla bibendum
+    id euismod urna sodales. ";
+
+$compressed = gzcompress($string);
+$original = gzuncompress($compressed);
+</pre>
+</div>
+
+<!------------------- SHORTHANDS ---------------------------->
+<div class="code-part"><h3 class="code-title">Shorthands</h3>
+<pre class="code">
+$loggedIn =  false;
+
+
+&lt;?php if($loggedIn) { ?&gt;
+    &lt;h1&gt;Welcome User&lt;/h1&gt;
+&lt;?php } else { ?&gt;
+    &lt;h1&gt;Welcome Guest&lt;/h1&gt;
+&lt;?php } ?&gt;
+
+
+&lt;?php if($loggedIn): ?&gt;
+    &lt;h1&gt;Welcome User&lt;/h1&gt;
+&lt;?php else: ?&gt;
+    &lt;h1&gt;Welcome Guest&lt;/h1&gt;
+&lt;?php endif; ?&gt;
+
+
+$arr = [1,2,3,4,5];
+&lt;?php foreach($arr as $val): ?&gt;
+    &lt;?php echo $val; ?&gt;
+&lt;?php endforeach; ?&gt;
+
+
+&lt;?php for($i = 0; $i &lt; 10; $i++): ?&gt;
+    &lt;li&gt;&lt;?php echo $i; ?&gt;&lt;/li&gt;
+&lt;?php endfor; ?&gt;
+</pre>
+</div>
+
+<!------------------- GET - POST------------------>
+<div class="code-part"><h3 class="code-title">GET / POST</h3>
+<pre class="code">
+&lt;?php
+
+if(isset($_GET['name'])){
+    $name = $_GET['name'];
+}
+
+if(isset($_POST['name'])){
+    $name = htmlentities($_POST['name']);
+}
+?&gt;
+&lt;form method="GET" action="&lt;?php echo htmlspecialchars($_SERVER['PHP_SELF']);?&gt;"&gt;
+    &lt;div&gt;
+        &lt;label&gt;Name&lt;/label&gt;&lt;br&gt;
+        &lt;input type="text" name="name"&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Email&lt;/label&gt;&lt;br&gt;
+        &lt;input type="text" name="email"&gt;
+    &lt;/div&gt;	
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;form method="POST" action="&lt;?php echo htmlspecialchars($_SERVER['PHP_SELF']);?&gt;"&gt;
+    &lt;div&gt;
+        &lt;label&gt;Name&lt;/label&gt;&lt;br&gt;
+        &lt;input type="text" name="name"&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;label&gt;Email&lt;/label&gt;&lt;br&gt;
+        &lt;input type="text" name="email"&gt;
+    &lt;/div&gt;	
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;
+        &lt;a href="&lt;?php echo htmlspecialchars($_SERVER['PHP_SELF']);?&gt;?name=Brad"&gt;Brad&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href="&lt;?php echo htmlspecialchars($_SERVER['PHP_SELF']);?&gt;?name=Steve"&gt;Steve&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+    
+&lt;h1&gt;&lt;?php echo "{$name}'s Profile"; ?&gt;&lt;/h1&gt;
+</pre>
+</div>
+
+<!------------------- OOP, CLASSES ---------------------------->
+<div class="code-part"><h3 class="code-title">OOP, Classes</h3>
+
+<p>make a class</p>
+<pre class="code">
+class User {
+
+    private $username;
+    private $email;
+
+    public function __construct($username, $email) {
+        $this->username = $username;
+        $this->email = $email;
+    }
+
+    public function addFriend() {
+        return "$this->username just added a new friend";
+    }
+
+    // getters
+    public function getEmail() {
+        return $this->email;
+    }
+
+    // setters
+    public function setEmail($username) {
+        if(strpos($username, '@') > -1) {
+            $this->email = $username;
+        };
+    }
+}
+
+$userOne = new User('mario', 'mario@thenetninja.co.uk');
+echo $userOne->getEmail();
+    
+$userTwo->setEmail('yoshi@thenetninja.co.uk');
+</pre>
+
+<p>class properties</p>
+<pre class="code">
+get_class($userOne);      
+get_class_vars('User'));
+get_class_methods('User'));
+</pre>
+
+<p>static</p>
+<pre class="code">
+class Weather {
+
+    public static $tempConditions = ['cold', 'mild', 'warm'];
+
+    public static function celsiusToFarenheit($c) {
+        return $c * 9 / 5 + 32;
+    }
+
+    public static function determineTempCondition($f) {
+        if($f < 40) {
+            return self::$tempConditions[0];
+        } elseif($f < 70) {
+            return self::$tempConditions[1];
+        } else {
+            return self::$tempConditions[2];
+        }
+    }
+}
+
+    print_r(Weather::$tempConditions);
+
+    echo Weather::celsiusToFarenheit(20);
+    echo Weather::determineTempCondition(80);
+</pre>
+
+<p>Validation</p>
+<pre class="code">
+require('user_validator.php');
+
+$errors = [];
+
+if(isset($_POST['submit'])){
+    //validate entries
+    $validation = new UserValidator($_POST);
+    $errors = $validation->validateForm();
+
+    // if errors is empty --> save data to db
+}
+
+&lt;div class="new-user"&lt;
+&lt;h2&lt;Create a new user&lt;/h2&lt;
+&lt;form action="&lt;?php echo $_SERVER['PHP_SELF'] ?&lt;" method="POST"&lt;
+
+    &lt;label&lt;username: &lt;/label&lt;
+    &lt;input type="text" name="username" value="&lt;?php echo htmlspecialchars($_POST['username']) ?? '' ?&lt;"&lt;
+    &lt;div class="error"&lt;
+    &lt;?php echo $errors['username'] ?? '' ?&lt;
+    &lt;/div&lt;
+    &lt;label&lt;email: &lt;/label&lt;
+    &lt;input type="text" name="email" value="&lt;?php echo htmlspecialchars($_POST['email']) ?? '' ?&lt;"&lt;
+    &lt;div class="error"&lt;
+    &lt;?php echo $errors['email'] ?? '' ?&lt;
+    &lt;/div&lt;
+    &lt;input type="submit" value="submit" name="submit" &lt;
+
+&lt;/form&lt;
+&lt;/div&lt;
+</pre>
+
+<p>validator class</p>
+<pre class="code">
+class UserValidator {
+
+    private $data;
+    private $errors = [];
+    private static $fields = ['username', 'email'];
+      
+    public function __construct($post_data){
+        $this->data = $post_data;
+    }
+    
+    private function addError($key, $val){
+        $this->errors[$key] = $val;
+    }  
+
+    public function validateForm(){
+      
+        foreach(self::$fields as $field){
+            if(!array_key_exists($field, $this->data)){
+                trigger_error("'$field' is not present in the data");
+                return;
+            }
+        }
+      
+        $this->validateUsername();
+        $this->validateEmail();
+        return $this->errors;
+      
+    }
+      
+    private function validateUsername(){
+      
+        $val = trim($this->data['username']);
+      
+        if(empty($val)){
+            $this->addError('username', 'username cannot be empty');
+        } else {
+            if(!preg_match('/^[a-zA-Z0-9]{6,12}$/', $val)){
+                $this->addError('username','username must be 6-12 chars & alphanumeric');
+            }
+        }
+    }
+      
+    private function validateEmail(){
+      
+        $val = trim($this->data['email']);
+      
+        if(empty($val)){
+            $this->addError('email', 'email cannot be empty');
+        } else {
+            if(!filter_var($val, FILTER_VALIDATE_EMAIL)){
+                $this->addError('email', 'email must be a valid email address');
+            }
+        }
+    }   
+}  
+</pre>
+</div>
+
+<!------------------- CLASS INHERITENCE ------------------>
+<div class="code-part"><h3 class="code-title">Class inheritence</h3>
+<p>Parent class</p>
+<pre class="code">
+class User {
+
+    private $username;
+    private $email;
+    private $role = 'member';
+
+    public function __construct($username, $email){
+        $this->username = $username;
+        $this->email = $email;
+    }
+
+    public function __destruct(){
+        echo "the user $this->username was removed <br>";
+    }
+  
+    public function __clone(){
+        $this->username = $this->username . ' (cloned)';
+    }
+
+    public function addFriend(){
+        return "$this->username just added a new friend";
+    }
+
+    public function message(){
+        return "$this->email sent a new message";
+    }
+
+    // getters
+    public function getEmail(){
+        return $this->email;
+    }
+
+    // setters
+    public function setEmail($username){
+        if(strpos($username, '@') > -1){
+            $this->email = $username;
+        };
+    }
+}
+</pre>
+
+<p>Child class <b>extends</b> parent</p>
+<pre class="code">
+class AdminUser extends User {
+
+    private $level;
+    private $role = 'admin';
+
+    public function __construct($username, $email, $level){
+        parent::__construct($username, $email);
+        $this->level = $level; 
+    }
+}
+</pre>
+
+<p>Initiate</p>
+<pre class="code">
+$userOne = new User('mario', 'mario@thenetninja.co.uk');
+$userTwo = new User('luigi', 'luigi@thenetninja.co.uk');
+$userThree = new AdminUser('yoshi', 'yoshi@thenetninja.co.uk', 5);
+
+//unset($userOne);
+$userFour = clone $userOne;
+echo $userFour->username;
+</pre>
+</div>
+
+<!------------------- PDO ------------------>
+<div class="code-part"><h3 class="code-title">PDO</h3>
+<pre class="code">
+$host =  'localhost';
+$user = 'root';
+
+$password = '12345';
+$dbname = 'test';
+
+// Set data source name
+$dsn = 'mysql:host='. $host .';dbname='. $dbname;
+
+// Create a PDO instance
+$pdo = new PDO($dsn, $user, $password);
+
+$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+</pre>
+<p>Querry</p>
+<pre class="code">
+$stmt = $pdo->query('SELECT * FROM posts');
+
+while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+    echo $row['title'];
+}
+
+// set default fetch type
+$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+while($row = $stmt->fetch()){
+    echo $row->title;
+}
+</pre>
+
+<p>PREPARED STATEMENTS (prepare & execute)</p>
+<p>User Input</p>
+<pre class="code">
+$author = 'Brad';
+$is_published = true;
+$id = 1;
+$limit = 1;
+</pre>
+
+<p>Positional Params</p>
+<pre class="code">
+$sql = 'SELECT * FROM posts WHERE author = ? && is_published = ? LIMIT ?';
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$author, $is_published, $limit]);
+$posts = $stmt->fetchAll();   
+</pre>
+
+<p>GET ROW COUNT</p>
+<pre class="code">
+$sql = 'SELECT * FROM POSTS WHERE author = ?';
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$author]);
+
+$postCount = $stmt->rowCount();
+    
+echo $postCount;
+</pre>
+
+<p>Named Params</p>
+<pre class="code">
+$sql = 'SELECT * FROM posts WHERE author = :author && is_published = :is_published';
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute(['author' => $author, 'is_published' => $is_published]);
+$posts = $stmt->fetchAll();  
+
+var_dump($posts);
+foreach($posts as $post){
+    echo $post->title;
+}
+</pre>
+
+<p>FETCH SINGLE POST</p>
+<pre class="code">
+$sql = 'SELECT * FROM posts WHERE id = :id';
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute(['id' => $id]);
+$post = $stmt->fetch();
+
+echo $post->body;
+</pre>
+
+<p>INSERT DATA</p>
+<pre class="code">
+$title = 'Post Five';
+$body = 'This is post five';
+$author = 'Kevin';
+
+$sql = 'INSERT INTO posts(title, body, author) VALUES(:title, :body, :author)';
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute(['title' => $title, 'body' => $body, 'author' => $author]);
+
+echo 'Post Added';    
+</pre>
+
+<p>UPDATE DATA</p>
+<pre class="code">
+$id = 1;
+$body = 'This is the updated post';
+
+$sql = 'UPDATE posts SET body = :body WHERE id = :id';
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute(['body' => $body, 'id' => $id]);
+
+echo 'Post Updated'
+</pre>
+
+<p>DELETE DATA</p>
+<pre class="code">
+$id = 3;
+
+$sql = 'DELETE FROM posts WHERE id = :id';
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute(['id' => $id]);
+
+echo 'Post Deleted';   
+</pre>
+
+<p>SEARCH DATA</p>
+<pre class="code">
+$search = "%f%";
+
+$sql = 'SELECT * FROM posts WHERE title LIKE ?';
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$search]);
+$posts = $stmt->fetchAll();
+
+foreach($posts as $post){
+   echo $post->title;
+}    
+</pre>
+</div>
+
+</div>
+</body>
+</html>

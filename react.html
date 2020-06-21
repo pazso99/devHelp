@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="scripts/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Help</title>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg navbar-custom">
+    <button class="navbar-toggler m-auto" type="button" data-toggle="collapse" data-target="#navbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Javascript</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="index.html">Javascript</a>
+                    <a class="dropdown-item" href="javascript-promises-fetch.html">Promises / Fetch</a>
+                    <a class="dropdown-item" href="typescript.html">Typescript</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Node.js</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="nodejs.html">Node.js</a>
+                    <a class="dropdown-item" href="express.html">Express</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="react.html">React</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">CSS</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="sass.html">Sass</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">PHP</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="php.html">PHP</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ajax.html">AJAX</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="git.html">Git</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">More</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="internet.html">Internet</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="wrapper">
+    <h1 class="title">React</h1>
+    <div class="search">
+        <input type="text">
+    </div>
+
+<!------------------- Install ------------------->
+<div class="code-part"><h3 class="code-title">Install</h3>
+<p>install react</p>
+<pre class="cmd-code">npx create-react-app name</pre>
+
+<p>the "start" script</p>
+<pre class="cmd-code">
+npm start
+</pre>
+
+</div>
+
+<!------------------- Component ------------------->
+<div class="code-part"><h3 class="code-title">Component</h3>
+<p>App.js - contains all other components</p>
+<pre class="code">
+import React from 'react';
+
+export default function App() {
+    return &lt;div>Hello there&lt;/div>
+}
+
+ReactDOM.render(App, document.getElementById('root'));
+</pre>
+<p>components - building blocks - return JSX</p>
+<p>JSX: html with js</p>
+<pre class="code">
+    &lt;div>{//js code here}&lt;/div>
+</pre>
+<p>make a component</p>
+<pre class="code">
+import React from 'react';
+
+export default Name() {
+    return (
+        &lt;div>Zsolti&lt;/div> 
+    )
+}
+
+</pre>
+<p>component with props:</p>
+<p>Book.js</p>
+<pre class="code">
+import React from 'react';
+
+export default function Book(props) {
+    return &lt;li>{props.title}&lt;/li>
+}
+</pre>
+<p>Components can hold multiple other components</p>
+<p>Books.js</p>
+<pre class="code">
+import React from 'react';
+import Book from './Book';
+
+export default function Books() {
+
+    const bookList = [{title: 'Game of thrones'}, {title: 'Lord of the rings'}, {title: 'Harry Potter'}];
+
+    return (
+        &lt;ul&gt; 
+            {bookList.map(book => &lt;Book title={book.title}/>)}
+        &lt;/ul&gt;
+    )
+        
+}
+</pre>
+
+</div>
+
+
+<!------------------- State ------------------->
+<div class="code-part"><h3 class="code-title">useState</h3>
+<p>dynamic storage</p>
+<pre class="code">
+import React, { useState } from 'react';
+
+export default function App() {
+
+    // value,  setter                 init
+    const [text, setText] = useState('Button not clicked');
+    const [count, setCount] = useState(0);
+
+    return (
+        &lt;>
+            &lt;div>
+                &lt;p>{text}&lt;/p>
+            &lt;div/>
+            &lt;button onClick={ () => {
+                setText('Button has benn clicked');
+                //setCount(count + 1);
+                //use prev count
+                setCount(prevCount => prevCount + 1);
+            } }>
+                Click me
+            &lt;/button>
+            &lt;div>
+                &lt;p>Clicked :{count} times&lt;/p>
+            &lt;div/>
+        &lt;/>
+    )
+}
+</pre>
+</div>
+
+
+<!------------------- useEffect ------------------->
+<div class="code-part"><h3 class="code-title">useEffect</h3>
+<p>triggers code when something happens</p>
+<p>when component created</p>
+<pre class="code">
+import React, { useEffect } from 'react';    
+
+// 1. function , 2. trigger
+useEffect(() => {
+    console.log('created component');
+}, [])
+</pre>
+<p>when state changes</p>
+<pre class="code">
+import React, { useState, useEffect } from 'react';  
+const [showName, setShow] = useState(false);
+
+useEffect(() => {
+    console.log('state changed');
+}, [showName])
+</pre>
+
+<p>cleanup before effect</p>
+<pre class="code">
+import React, { useEffect } from 'react';  
+
+useEffect(() => {
+    console.log('created component');
+    return () => console.log('cleanup');
+}, [])
+</pre>
+<p>pl: </p>
+<pre class="code">
+import React, { useEffect, useState } from 'react';  
+
+const [windowWith, setwindowWith] = useState(window.innerWidth);  
+
+//set windowWith state to the current window with via event listener
+const handleResize() => {
+    setwindowWith(window.innerWidth);
+}
+
+useEffect(() => {
+    window.addEventListener('resize', handleResize);
+
+    //to remove addedd event listener
+    return () => {
+        window.removeEventListener('resize', handleResize);
+    } 
+}, [])
+</pre>
+</div>
+
+<!------------------- State && effect------------------->
+<div class="code-part"><h3 class="code-title">Example w/ useState && useEffect</h3>
+<pre class="code">
+import React, { useState, useEffect } from 'react';
+
+export default function App() {
+
+    const [text, setText] = useState('Button not clicked');
+    const [count, setCount] = useState(0);
+
+    // executes when component created
+    useEffect(() => {
+        const count = localStorge.getItem('count');
+        if (count) {
+            setCount(Number.parseInt(count));
+        }
+    }), [];
+
+    //save when count changes
+    useEffect(() => {
+        localStorge.setItem('count', count);
+    }, [count]);
+
+    return (
+        &lt;>
+            &lt;div>
+                &lt;p>{text}&lt;/p>
+            &lt;div/>
+            &lt;button onClick={ () => {
+                setText('Button has benn clicked');
+                setCount(prevCount => prevCount + 1);
+            } }>
+                Click me
+            &lt;/button>
+            &lt;div>
+                &lt;p>Clicked :{count} times&lt;/p>
+            &lt;div/>
+        &lt;/>
+    )
+}
+</pre>
+<hr class="line">
+<pre class="code">
+import React, { useState, useEffect } from 'react';
+
+export default function App() {
+    const [resourceType, setResourceType] = useState('post');
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
+            .then(response => response.json())
+            .then(data => setItems(data))
+    }, [resourceType]);
+
+    return (
+        <>
+            &lt;div>
+                &lt;button onClick={() => setResourceType('users')}>users&lt;/button>
+                &lt;button onClick={() => setResourceType('posts')}>posts&lt;/button>
+                &lt;button onClick={() => setResourceType('comments')}>comments&lt;/button>
+            &lt;div/>
+            &lt;h1>{resourceType}&lt;/h1>
+            {items.map(item => {
+               // return &lt;pre>{JSON.stringify(item)}&lt;/pre>
+            })}
+        </>
+    )
+}
+</pre>
+</div>
+
+
+</div>
+</body>
+</html>

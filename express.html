@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="scripts/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Help</title>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg navbar-custom">
+    <button class="navbar-toggler m-auto" type="button" data-toggle="collapse" data-target="#navbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Javascript</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="index.html">Javascript</a>
+                    <a class="dropdown-item" href="javascript-promises-fetch.html">Promises / Fetch</a>
+                    <a class="dropdown-item" href="typescript.html">Typescript</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Node.js</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="nodejs.html">Node.js</a>
+                    <a class="dropdown-item" href="express.html">Express</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="react.html">React</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">CSS</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="sass.html">Sass</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">PHP</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="php.html">PHP</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ajax.html">AJAX</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="git.html">Git</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">More</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="internet.html">Internet</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="wrapper">
+    <h1 class="title">Express</h1>
+    <div class="search">
+        <input type="text">
+    </div>
+
+<!------------------- Install, basics, static server ------------------->
+<div class="code-part"><h3 class="code-title">Install express</h3>
+
+<pre class="cmd-code">npm i express</pre>
+<p>install nodemon for server</p>
+<pre class="cmd-code">npm i -D nodemon </pre>
+
+<p>node scripts</p>
+<pre class="code">
+{
+    "start" : "node index",
+    "dev" : "nodemon index"
+}
+</pre>
+
+<p>Make static server</p>
+<pre class="code">
+const express = require('express');
+const path = require('path');
+
+const app = express();
+
+// Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+</pre>
+
+<p>respond in json</p>
+<pre class="code">
+const users = [
+    { name: 'Bob Smith', age: 40 },
+    { name: 'John Doe', age: 30 }
+];
+module.exports = users;
+</pre>
+<pre class="code">
+const express = require('express');
+const users = require('./users');
+
+const app = express();
+
+app.get('/api/users', (req, res) =>
+    res.json(users);
+);
+    
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+</pre>
+</div>
+
+<!------------------- Router ------------------>
+<div class="code-part"><h3 class="code-title">ROUTER</h3>
+<pre class="code">
+const express = require('express');
+const app = express();
+const path = require('path');
+const router = express.Router();
+
+const createPath = (page) => {
+    return path.join(__dirname, 'public', `${page}.html`);
+}
+
+
+router.get('/',function(req,res){
+    res.sendFile(createPath('index'));
+});
+
+router.get('/about',function(req,res){
+    res.sendFile(createPath('about'));
+});
+
+router.get('/sitemap',function(req,res){
+    res.sendFile(createPath('sitemap'));
+});
+
+//add the router
+app.use('/', router);
+app.listen(process.env.port || 3000);
+
+console.log('Running at Port 3000');
+</pre>
+<hr class="line">
+<p>Users</p>
+<pre class="code">
+const users = [
+{
+    id: 1,
+    name: 'John Doe',
+    email: 'john@gmail.com',
+    status: 'active'
+},
+{
+    id: 2,
+    name: 'Bob Williams',
+    email: 'bob@gmail.com',
+    status: 'inactive'
+},
+{
+id: 3,
+    name: 'Shannon Jackson',
+    email: 'shannon@gmail.com',
+    status: 'active'
+}
+];
+
+module.exports = users;
+</pre>
+<pre class="code">
+const express = require('express');
+const users = require('./Users');
+const app = express();
+    
+app.get('api/users/:id', (req, res) => {
+    
+    const id = parseInt(req.params.id);
+
+    const found = users.some(user => user.id === id);
+    if (found) {
+        res.json(users.filter(user => user.id === id));
+    } else {
+        res.status(400).json({ msg: `No user with the id of ${id}` });
+    }
+    
+})
+    
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+</pre>
+</div>
+
+
+<!------------------- User Api ------------------>
+<div class="code-part"><h3 class="code-title">USER API w/ routes</h3>
+<pre>
+Users.js
+index.js
+routers 
+  api
+    users.js
+</pre>
+<p>Users.js</p>
+<pre class="code">
+const users = [
+{
+    id: 1,
+    name: 'John Doe',
+    email: 'john@gmail.com',
+    status: 'active'
+},
+{
+    id: 2,
+    name: 'Bob Williams',
+    email: 'bob@gmail.com',
+    status: 'inactive'
+},
+{
+id: 3,
+    name: 'Shannon Jackson',
+    email: 'shannon@gmail.com',
+    status: 'active'
+}
+];
+
+module.exports = users;
+</pre>
+<p>index.js</p>
+<pre class="code">
+const express = require('express');
+const Users = require('./routes/api/users');
+
+const app = express();
+
+app.use('/api/users', Users);
+
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+</pre>
+<p>routers/api/users.js</p>
+<pre class="code">
+const express = require('express');
+const uuid = require('uuid');
+const users = require('../../Users');
+const router = express.Router();
+
+
+const idFilter = req => user => user.id === parseInt(req.params.id);
+
+// Gets All Users
+router.get('/', (req, res) => res.json(users));
+
+// Get Single User
+router.get('/:id', (req, res) => {
+    const found = users.some(idFilter(req));
+
+    if (found) {
+        res.json(users.filter(idFilter(req)));
+    } else {
+        res.status(400).json({ msg: `No user with the id of ${req.params.id}` });
+    }
+});
+
+// Create User
+router.post('/', (req, res) => {
+    const newUser = {
+        ...req.body,
+        id: uuid.v4(),
+        status: 'active'
+    };
+
+    if (!newUser.name || !newUser.email) {
+        return res.status(400).json({ msg: 'Please include a name and email' });
+    }
+
+    users.push(newUser);
+    res.json(users);
+    // res.redirect('/');
+});
+
+// Update User
+router.put('/:id', (req, res) => {
+    const found = Users.some(idFilter(req));
+
+    if (found) {
+    users.forEach((user, i) => {
+        if (idFilter(req)(user)) {
+
+        const updUser = {...user, ...req.body};
+        users[i] = updUser
+        res.json({ msg: 'User updated', updUser });
+        }
+    });
+    } else {
+    res.status(400).json({ msg: `No user with the id of ${req.params.id}` });
+    }
+});
+
+// Delete user
+router.delete('/:id', (req, res) => {
+    const found = users.some(idFilter(req));
+
+    if (found) {
+    res.json({
+        msg: 'user deleted',
+        users: users.filter(user => !idFilter(req)(user))
+    });
+    } else {
+    res.status(400).json({ msg: `No user with the id of ${req.params.id}` });
+    }
+});
+
+module.exports = router;
+</pre>
+</div>
+
+
+<!------------------- Middleware ------------------>
+<div class="code-part"><h3 class="code-title">Middleware</h3>
+<p>Logger</p>
+<pre class="code">
+const moment = require('moment');
+
+const logger = (req, res, next) => {
+    console.log(`${req.protocol}://${req.get('host')}${req.originalUrl}: ${moment().format()}`);
+    next();
+};
+
+module.exports = logger;
+</pre>
+<pre class="code">
+const express = require('express');
+const logger = require('./middleware/logger');
+    
+const app = express();
+    
+// Init middleware
+app.use(logger);
+    
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+</pre>
+</div>
+
+<!------------------- Handlebars 
+<div class="code-part"><h3 class="code-title">handlebars</h3>
+<pre class="code">
+const express = require('express');
+const exphbs = require('express-handlebars');
+const members = require('./Members');
+
+const app = express();
+
+// Handlebars Middleware
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+
+
+// Homepage Route
+app.get('/', (req, res) => res.render('index', {title: 'Member App',members}));
+</pre>
+<p> -views<br>
+    ---layouts<br>
+    -----<b>main.handlebars</b><br>
+    ---index.handlebars
+</p>
+
+<pre class="code">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+    &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"&gt;
+    &lt;title&gt;Members App&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class="container mt-4"&gt;
+    {{{body}}}
+    &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+
+<p> -views<br>
+    ---layouts<br>
+    -----main.handlebars<br>
+    ---<b>index.handlebars</b>
+</p>
+<pre class="code">
+&lt;h1 class="text-center mb-3"&gt;{{title}}&lt;/h1&gt;
+&lt;form action="/api/members" method="POST" class="mb-4"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="name"&gt;Name&lt;/label&gt;
+    &lt;input type="text" name="name" class="form-control"&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label for="email"&gt;Email&lt;/label&gt;
+    &lt;input type="email" name="email" class="form-control"&gt;
+  &lt;/div&gt;
+  &lt;input type="submit" value="Add Member" class="btn btn-primary btn-block"&gt;
+&lt;/form&gt;
+&lt;h4&gt;Members&lt;/h4&gt;
+&lt;ul class="list-group"&gt;
+  {{#each members}}
+  &lt;li class="list-group-item"&gt;{{this.name}}: {{this.email}}&lt;/li&gt;
+  {{/each}}
+&lt;/ul&gt;
+
+&lt;a href="/api/members" class="btn btn-light mt-4"&gt;Visit API&lt;/a&gt;
+</pre>
+</div>
+------------------>
+
+</div>
+</body>
+</html>

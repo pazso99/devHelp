@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="scripts/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Help</title>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg navbar-custom">
+    <button class="navbar-toggler m-auto" type="button" data-toggle="collapse" data-target="#navbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Javascript</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="index.html">Javascript</a>
+                    <a class="dropdown-item" href="javascript-promises-fetch.html">Promises / Fetch</a>
+                    <a class="dropdown-item" href="typescript.html">Typescript</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Node.js</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="nodejs.html">Node.js</a>
+                    <a class="dropdown-item" href="express.html">Express</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="react.html">React</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">CSS</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="sass.html">Sass</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">PHP</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="php.html">PHP</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ajax.html">AJAX</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="git.html">Git</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">More</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="internet.html">Internet</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="wrapper">
+    <h1 class="title">Node.js</h1>
+    <div class="search">
+        <input type="text">
+    </div>
+
+
+<div class="code-part"><h3 class="code-title">NPM</h3>
+<p>install node</p>
+<pre class="cmd-code">npm init --yes</pre>
+
+<p>install mode</p>
+<pre class="cmd-code">
+npm install 'module'                // to dependency
+npm install 'module' --save-dev     // to dev dependency
+</pre>
+
+<p>update module</p>
+<pre class="cmd-code">npm update 'module'</pre>
+
+<p>uninstall module</p>
+<pre class="cmd-code">npm uninstall/remove/rm 'module'</pre>
+</div>
+
+<div class="code-part"><h3 class="code-title">Node scripts</h3>
+<pre class="code">
+,
+"scripts": {
+    "start": "node index.js",
+    "server": "node live-server"
+}
+,
+</pre>
+<p>the "start" script</p>
+<pre class="cmd-code">
+npm start
+</pre>
+
+<p>other scripts</p>
+<pre class="cmd-code">
+npm run server
+</pre>
+
+<p>.gitignore</p>
+<pre class="code">node-modules</pre>
+
+<p>uninstall module</p>
+<pre class="cmd-code">npm uninstall/remove/rm 'module'</pre>
+</div>
+
+<!------------------- IMPORT/EXPORT/require ------------------->
+<div class="code-part"><h3 class="code-title">Import / export / require</h3>
+<pre class="code">
+const people = ["John", "Joe", "Jane"];
+const ages = [36, 46, 24];
+
+//module.exports = people
+module.exports = {
+    people,  
+    ages
+};
+</pre>
+<pre class="code">
+// destructoring
+const { people, ages } = require('./people');
+</pre>
+</div>
+
+
+<!------------------- EVENTS ------------------->
+<div class="code-part"><h3 class="code-title">Events</h3>
+<pre class="code">
+const EventEmitter = require('events');
+
+// Create class
+class MyEmitter extends EventEmitter {}
+
+// Init object
+const myEmitter = new MyEmitter();
+
+// Event listener
+myEmitter.on('event', () => console.log('Event Fired!'));
+
+// Init event
+myEmitter.emit('event');
+myEmitter.emit('event');
+</pre>
+</div>
+
+
+<!------------------- OS ------------------->
+<div class="code-part"><h3 class="code-title">OS</h3>
+<pre class="code">
+const os = require('os');
+
+// Platform
+os.platform();
+
+// CPU Arch
+os.arch();
+
+// CPU Core Info
+os.cpus();
+
+// Free memory
+os.freemem();
+
+// Total memory
+os.totalmem();
+
+// Home dir
+os.homedir(); 
+</pre>
+</div>
+
+<!------------------- URL ------------------->
+<div class="code-part"><h3 class="code-title">URL</h3>
+<pre class="code">
+const url = require('url');
+
+const myUrl = new URL('http://mywebsite.com/hello.html?id=100&status=active');
+
+// Serialized URL
+myUrl.href;
+myUrl.toString();
+
+// Host (root domain)
+myUrl.host;
+
+// Hostname (does not get port)
+myUrl.hostname;
+
+// Pathname
+myUrl.pathname;
+
+// Serialized query
+myUrl.search;
+
+// Params object
+myUrl.searchParams;
+
+// Add param
+myUrl.searchParams.append('abc', '123');
+
+// Loop through params
+myUrl.searchParams.forEach((value, name) => console.log(`${name}: ${value}`));
+</pre>
+</div>
+
+<!------------------- PATH ------------------->
+<div class="code-part"><h3 class="code-title">PATH</h3>
+<pre class="code">
+const path = require('path');
+
+// Base file name
+path.basename(__filename);
+
+// Directory name
+path.dirname(__filename);
+
+// File extension
+path.extname(__filename);
+
+// Create path object
+path.parse(__filename).base;
+
+// Concatenate paths
+path.join(__dirname, 'test', 'hello.html');
+
+
+// get the path delimiter base on the current OS Environment
+const platSpec = path.delimiter;
+
+</pre>
+</div>
+
+<!------------------- FS ------------------->
+<div class="code-part"><h3 class="code-title">FS</h3>
+<pre class="code">
+const fs = require('fs');
+const path = require('path');
+
+// Check and Create folder
+cont path1 = path.join(__dirname, '/test');
+if (!fs.existSync(path1)) {
+    fs.mkdir(path1, {}, err => {
+        if (err) throw err;
+        console.log('Folder created...');
+     });
+}
+
+// Create and write to file
+fs.writeFile(path.join(__dirname, '/test', 'hello.txt'), 'Hello World!', err => {
+    if (err) throw err;
+    console.log('File written to...');
+});
+
+// File append
+fs.appendFile(path.join(__dirname, '/test', 'hello.txt'), ' I love Node.js', err => {
+    if (err) throw err;
+    console.log('File written to...');
+});
+
+// Read file
+fs.readFile(path.join(__dirname, '/test', 'hello.txt'), (err, data) => {
+   if (err) throw err;
+   console.log(data.toString());
+});
+
+// Rename file
+fs.rename(path.join(__dirname, '/test', 'hello.txt'), path.join(__dirname, '/test', 'helloworld.txt'), err => {
+    if (err) throw err;
+    console.log('File renamed...');
+});
+
+// delete a folder
+fs.rmdir(path.join(__dirname, "/myFolderToDelete"), (err) => {
+    if (err) throw err;
+
+    console.log("Folder deleted ...");
+});
+
+//delete file
+if (fs.existSync(path.join(__dirname, '/test', 'hello.txt'))) {
+    fs.unlink(path.join(__dirname, '/test', 'hello.txt'), err => {
+        if (err) throw err;
+        console.log('File deleted...');
+    })
+}
+
+// Read the contents of a folder
+// NOTE: the first argument can be whatever route you want, it doesn't have to be the actual dirname.
+fs.readdir(__dirname, (err, files) => {
+    if (err) throw err
+    console.log(files)
+}) 
+
+// Copy a file 
+fs.copyFile('source.txt', 'destination.txt', err => {
+    if (err) throw err;
+    console.log('File copied...')
+})
+
+</pre>
+
+<p>WRITE THE FOLLOWING USERS NAME IN  A FILE</p>
+<pre class="code">
+const users = [
+    { name: "Kaddy" },
+    { name: "Marc" },
+    { name: "Prince" },
+    { name: "Kally" }
+]
+
+// create folder
+fs.mkdir(path.join(__dirname, "/data"), {}, err => {
+    if (err) throw err;
+
+    console.log("Folder created ...");
+
+    // create file and write json data
+    fs.writeFile(path.join(__dirname, "/data", "name.json"), JSON.stringify(users), err => {
+    if (err) throw err;
+
+    console.log("File created and data written ...")
+    });
+});
+</pre>
+<p> AND THEN DISPLAY THEM</p>
+<pre class="code">
+//read file
+fs.readFile(path.join(__dirname, "/data", "name.json"), "utf8", (err, users) => {
+    if (err) throw err;
+
+    // display user name
+    JSON.parse(users).forEach(user => {
+    console.log(user.name);
+    });
+});
+</pre>
+
+</div>
+
+<!------------------- STREAM, BUFFER ------------------->
+<div class="code-part"><h3 class="code-title">Streams and buffer</h3>
+<pre class="code">
+const fs = require('fs');
+
+const readStream = fs.createReadStream('./docs/blog3.txt', {encoding: 'utf8'});
+const writeStream = fs.createWriteStream('./docs/blog4.txt');
+
+//event listener (when we recive small package buffer data)
+readStream.on('data', (chunk) => {
+    console.log("-----NEW CHUNK-----");
+    console.log(chunk);
+
+    writeStream.write('\n NEW CHUNK \n');
+    writeStream.write(chunk);
+});
+
+// piping same - but - much sorter
+readStream.pipe(writeStream);
+
+</pre>
+</div>
+
+<!------------------- HTTP ------------------->
+<div class="code-part"><h3 class="code-title">HTTP</h3>
+<pre class="code">
+const http = require('http');
+
+// Create server object
+http.createServer((request, response) => {
+    console.log(request.url)
+    response.write('Hello World');
+    response.end();
+})
+.listen(5000, () => console.log('Server running...'));
+</pre>
+
+
+<pre class="code">
+const http = require('http');
+
+// Create server object
+http.createServer((request, response) => {
+    if (request.url === '/api/users') {
+        const users = [
+            { name: 'Bob Smith', age: 40 },
+            { name: 'John Doe', age: 30 }
+        ];
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(users));
+    }
+})
+.listen(5000, () => console.log('Server running...'));
+</pre>
+
+<p>send html file</p>
+<pre class="code">
+const http = require('http');
+
+// Create server object
+http.createServer((req, res) => { 
+ 
+fs.readFile('./views/index.html', (err, data) => {
+   if (err) {
+        console.log(err);
+        res.end();
+   }
+    res.write(data);
+    res.end(data);
+ });
+})
+.listen(5000, () => console.log('Server running...'));
+</pre>
+
+<p>Routing</p>
+<pre class="code">
+const server = http.createServer((req, res) => {
+    
+    // set header content type
+    res.setHeader('Content-Type', 'text/html');
+    
+    // routing
+    let path = './views/';
+    switch(req.url) {
+        case '/':
+            path += 'index.html';
+            res.statusCode = 200;
+            break;
+        case '/about':
+            path += 'about.html';
+            res.statusCode = 200;
+            break;
+        case '/about-us':
+            res.statusCode = 301;
+            res.setHeader('Location', '/about');
+            res.end();
+            break;
+        default:
+            path += '404.html';
+            res.statusCode = 404;
+    }
+    
+    // send html
+    fs.readFile(path, (err, data) => {
+        if (err) {
+            console.log(err);
+            res.end();
+        }
+        res.write(data);
+        res.end(data);
+    });
+});
+server.listen(5000, () => console.log('Server running...'));
+</pre>
+
+<p> with url parameters : http://localhost:8080/?year=2017&month=July
+</p>
+<pre class="code">
+const http = require('http');
+const url = require('url');     
+
+http.createServer((req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  const q = url.parse(req.url, true).query;
+  const txt = q.year + " " + q.month;
+  res.end(txt);     // 2017 July
+}).listen(8080);
+</pre>
+
+</div>
+
+<hr class="line">
+
+<!------------------- MAKE SERVER ------------------->
+<div class="code-part"><h3 class="code-title">MAKE A SERVER</h3>
+<button class="copy">
+    <span class="copy-text">Copy to clipboard</span>
+</button>
+<pre class="code">
+const http = require("http");
+const path = require("path");
+const fs = require("fs");
+
+const server = http.createServer((req, res) => {
+    if (req.url === '/') {
+        fs.readFile(path.join(__dirname, 'public', 'index.html'), (err, content) => {
+            if (err) throw err;
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.end(content);
+        });
+    }
+
+
+
+    // Build file path
+    let filePath = path.join(__dirname, "public", req.url === "/" ? "index.html" : req.url);
+
+    // Extension of file
+    let extname = path.extname(filePath);
+
+    // Initial content type
+    let contentType = "text/html";
+
+    // Check ext and set content type
+    switch (extname) {
+        case ".js":
+            contentType = "text/javascript";
+            break;
+        case ".css":
+            contentType = "text/css";
+            break;
+        case ".json":
+            contentType = "application/json";
+            break;
+        case ".png":
+            contentType = "image/png";
+            break;
+        case ".jpg":
+            contentType = "image/jpg";
+            break;
+    }
+
+    // Check if contentType is text/html but no .html file extension
+    if (contentType == "text/html" && extname == "") filePath += ".html";
+
+    // Read File
+    fs.readFile(filePath, (err, content) => {
+        if (err) {
+            if (err.code == "ENOENT") {
+                // Page not found
+                fs.readFile( path.join(__dirname, "public", "404.html"), (err, content) => {
+                    res.writeHead(404, { "Content-Type": "text/html" });
+                    res.end(content, "utf8");
+                });
+            } else {
+                //  Some server error
+                res.writeHead(500);
+                res.end(`Server Error: ${err.code}`);
+            }
+        } else {
+            // Success
+            res.writeHead(200, { "Content-Type": contentType });
+            res.end(content, "utf8");
+        }
+    });
+});
+
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+</pre>
+</div>
+</div>
+</body>
+</html>

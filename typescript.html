@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="scripts/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Help</title>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg navbar-custom">
+    <button class="navbar-toggler m-auto" type="button" data-toggle="collapse" data-target="#navbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Javascript</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="index.html">Javascript</a>
+                    <a class="dropdown-item" href="javascript-promises-fetch.html">Promises / Fetch</a>
+                    <a class="dropdown-item" href="typescript.html">Typescript</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Node.js</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="nodejs.html">Node.js</a>
+                    <a class="dropdown-item" href="express.html">Express</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="react.html">React</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">CSS</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="sass.html">Sass</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">PHP</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="php.html">PHP</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ajax.html">AJAX</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="git.html">Git</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">More</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="internet.html">Internet</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="wrapper">
+    <h1 class="title">Typescript</h1>
+    <div class="search">
+        <input type="text">
+    </div>
+
+
+<!------------------- Install ------------------>
+<div class="code-part"><h3 class="code-title">Install</h3>
+<p>npm</p>
+<pre class="cmd-code">
+npm i -g typescript
+</pre>
+<p>tsconfig.json</p>
+<pre class="code">
+{
+    "compilerOptions" : {
+        "target" : "esnext",
+        "watch" : true,
+        "lib" : ["dom", "es2017"]
+    }
+}
+</pre>
+<p>compile</p>
+<pre class="cmd-code">
+tsc index.tsc
+</pre>
+</div>
+
+
+<!------------------- Syntax ------------------>
+<div class="code-part"><h3 class="code-title">Syntax</h3>
+<p>implicit value type</p>
+<pre class="code">
+let lucky = 23;
+lucky = "asd"; // error
+</pre>
+<p>explicit value type</p>
+<pre class="code">
+let lucky: any = 23;    // if no value assigned: any type
+lucky = "asd"; // error
+</pre>
+<p>built in types</p>
+<pre class="code">
+any
+string
+number
+boolean
+</pre>
+<p>make a type</p>
+<pre class="code">
+type Style = 'bold' | 'italic' | 23
+let font: Style;
+let font = 'something'; //error
+</pre>
+
+</div>
+
+<!------------------- Interfaces ------------------>
+<div class="code-part"><h3 class="code-title">Interfaces</h3>
+<p>for objects</p>
+<pre class="code">
+interface Person {
+    first: string;
+    last: string;
+    [key: string]: any
+}
+
+const person: Person = {
+    first: "Zsolt";
+    last: "Pap";
+    pro: true;
+}
+</pre>
+</div>
+
+
+<!------------------- Functions ------------------>
+<div class="code-part"><h3 class="code-title">Funcions</h3>
+<p>make function</p>
+<pre class="code">
+function pow(x:number, y:number) {
+    return Math.pow(x,y);
+}
+pow(5, 10);
+</pre>
+<p>return function</p>
+<pre class="code">
+function pow(x:number, y:number): string {
+    return Math.pow(x,y).toString();
+}
+// ? - optional
+function hello(name: string, general: boolean?): void {
+    if(y == undefined || y == false) {
+        console.log(`Hello ${name}`);
+    } else if (y) {
+        console.log(`Hello there, General${name}`);
+    }
+}
+</pre>
+</div>
+
+<!------------------- Arrays, Tupples ------------------>
+<div class="code-part"><h3 class="code-title">Arrays, Tupples</h3>
+<p>make array</p>
+<pre class="code">
+const numArr: number[] = [];
+
+const personArr: Person[] = [];
+</pre>
+<p>Tupples</p>
+<pre class="code">
+type MyList = [number, string, boolean];
+
+const arr: MyList = [];
+
+arr.push(1);
+arr.push("asdasd");
+arr.push(true);
+</pre>
+</div>
+
+<!------------------- Generics ------------------>
+<div class="code-part"><h3 class="code-title">Generics</h3>
+<p>make generics</p>
+<pre class="code">
+class Observable<T> {
+    constructor(public value: T) {}
+}
+</pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="scripts/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Help</title>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg navbar-custom">
+    <button class="navbar-toggler m-auto" type="button" data-toggle="collapse" data-target="#navbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Javascript</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="index.html">Javascript</a>
+                    <a class="dropdown-item" href="javascript-promises-fetch.html">Promises / Fetch</a>
+                    <a class="dropdown-item" href="typescript.html">Typescript</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Node.js</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="nodejs.html">Node.js</a>
+                    <a class="dropdown-item" href="express.html">Express</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="react.html">React</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">CSS</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="sass.html">Sass</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">PHP</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="php.html">PHP</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ajax.html">AJAX</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="git.html">Git</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">More</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="internet.html">Internet</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="wrapper">
+    <h1 class="title">AJAX</h1>
+    <div class="search">
+        <input type="text">
+    </div>
+
+<!------------------- STATUS CODES ------------------>
+<div class="code-part"><h3 class="code-title">Status codes / readyState values</h3>
+<p>
+    200: "OK" <br>
+    403: "Forbidden"<br>
+    404: "Not Found"
+</p>
+<p>
+    0: request not initialized <br>
+    1: server connection established<br>
+    2: request received <br>
+    3: processing request <br>
+    4: request finished and response is ready
+</p>
+</div>
+
+<!------------------- Ajax , js ------------------>
+<div class="code-part"><h3 class="code-title">AJAX - Javascript</h3>
+<p>get data from text file</p>
+<pre class="code">
+function loadText(){
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'text.txt', true);
+
+    xhr.onprogress = function(){
+        console.log('READYSTATE: ', xhr.readyState);
+    }
+
+    xhr.onload = function() {
+        if (this.status == 200){
+            console.log(this.responseText);
+        
+        } else if (this.status = 404){
+            console.log('not found');
+        }
+    }
+
+    xhr.onerror = function() {
+        console.log('Request Error...');
+    }
+    xhr.send();
+}
+</pre>
+
+<p>get data from json</p>
+<pre class="code">
+function loadUser(){
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://getdata.com/names', true);
+
+    xhr.onload = function() {
+        if(this.status == 200){
+            const data = JSON.parse(this.responseText);
+           
+            data.forEach(name => console.log(name.id))
+        }
+    }
+    xhr.send();
+}
+</pre>
+</div>
+
+<!------------------- Ajax, php ------------------>
+<div class="code-part"><h3 class="code-title">AJAX - PHP</h3>
+<p>html & javascript</p>
+<pre class="code">
+&lt;form id="getForm"&gt;
+    &lt;input type="text" name="name" id="getName"&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;form id="postForm"&gt;
+    &lt;input type="text" name="name" id="postName"&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+</pre>
+<pre class="code">
+document.getElementById('getForm').addEventListener('submit', getName);
+
+function getName(e){
+    e.preventDefault();
+
+    const name = document.getElementById('getName').value;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'process.php?name='+name, true);
+
+    xhr.onload = function(){
+        console.log(this.responseText);
+    }
+
+    xhr.send();
+}
+
+document.getElementById('postForm').addEventListener('submit', postName);
+
+function postName(e){
+    e.preventDefault();
+
+    const name = document.getElementById('postName').value;
+    const params = "name="+name;
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'process.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function(){
+        console.log(this.responseText);
+    }
+
+    xhr.send(params);
+}
+</pre>
+<p>post data (process.php)</p>
+<pre class="code">
+&lt;?php
+
+// Connect to a database
+$conn = mysqli_connect('localhost', 'root', '', 'test');
+
+// POST
+if(isset($_POST['name'])){
+    $name = $_POST['name'];
+
+    $query = "INSERT INTO users(name) VALUES('$name')";
+
+    if(mysqli_query($conn, $query)){
+        echo 'User Added...';
+    } else {
+        echo 'ERROR: '. mysqli_error($conn);
+    }
+}
+
+// GET
+if(isset($_GET['name'])){
+    $name = $_GET['name'];
+}
+</pre>
+<hr class="line">
+<p>html & javascript</p>
+<pre class="code">
+function loadUsers(){
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'users.php', true);
+
+    xhr.onload = function() {
+        if(this.status == 200) {
+            const users = JSON.parse(this.responseText);
+    
+            users.forEach( user =>{
+                console.log(user.id);
+            });
+        }
+    }   
+
+    xhr.send();
+}
+</pre>
+<p>get data from db (users.php)</p>
+<pre class="code">
+&lt;?php 
+$conn = mysqli_connect('localhost', 'root', '', 'test');
+
+$query = 'SELECT * FROM users';
+
+$result = mysqli_query($conn, $query);
+
+$users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+echo json_encode($users);
+</pre>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="scripts/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Help</title>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg navbar-custom">
+    <button class="navbar-toggler m-auto" type="button" data-toggle="collapse" data-target="#navbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Javascript</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="index.html">Javascript</a>
+                    <a class="dropdown-item" href="javascript-promises-fetch.html">Promises / Fetch</a>
+                    <a class="dropdown-item" href="typescript.html">Typescript</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Node.js</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="nodejs.html">Node.js</a>
+                    <a class="dropdown-item" href="express.html">Express</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="react.html">React</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">CSS</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="sass.html">Sass</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">PHP</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="php.html">PHP</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ajax.html">AJAX</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="git.html">Git</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">More</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="internet.html">Internet</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="wrapper">
+    <h1 class="title">Javascript</h1>
+    <div class="search">
+        <input type="text">
+    </div>
+
+<!------------------- ABOUT --------------------------->
+<div class="code-part">
+    <h3 class="code-title">About</h3>
+    <p>
+        <b>high level</b><br>
+        proivides simpliflication on computers hardwer<br> 
+        == machine code (01001) == assembly (cpu ,os függ) == c(systax but memory allocation.. ) <br> 
+            == high level - simplify devs to write apps (USE ABSCRAPTIONS like garbage collection, memory allocation, dynamic typing)<br> 
+    allocat memory to store things in the runtime(variables) and thred (to execute)
+    </p>
+    <p>
+        <b>interpreted</b><br>
+        IN:javascript -> interpreter -> OUT:machine code(bytecode) <br>
+        ----<br>
+        Compiled like Java, C<br>
+        IN:java -> compiler - completes all line code -> complied -> OUT
+    </p>
+    <p>
+        <b>prototype-based inheritence</b><br>
+        ecerything in js is an object<br>
+        and all objects holds a link to its prototype (objects can inmheritence from objects)<br>
+    </p>
+    <p>
+        <b>multi-paradigm</b><br>
+        like all General purpuse languages  -  code style<br> 
+        declerative - functional approche<br> 
+        imperative - object orianted approach
+    </p>
+    <p>
+        <b>dynamic language </b><br>
+        no use any exlcict type definitions (no int xy)<br> 
+        implicit, type associatod with the runtime values<br> 
+        //-- these are handled by browsers--\\<br> 
+        //      spidermonkey - mozzila<br> 
+        //      v8 - google
+    </p>
+    <p>
+        <b>JIT (just in time) compiled</b><br>
+        compile js code to native machine code before running it
+    </p>
+    <p>
+        <b>single-threaded</b><br>
+        JUST one event (like- while(true))<br> 
+        when executing js code:<br> 
+        MEMORY - two regions allocated<br> 
+            CALLSTACK<br> 
+                - stackedd, console.log is  one in done operation gets on stack and then immediatly pop from the stack, store functions<br> 
+            HEAP<br> 
+                - unstracted, store objects(can referenced more)<br> 
+                    when its no longer referenced -> garbage-collectore
+    </p>
+    <p>
+        <b>garbage-collected</b><br>
+        clear from memory when its no longer referenced <br> 
+        dont need to manually allocate, clear memory like C
+    </p>
+
+    <p>
+        <b>non-blocking event loop</b><br>
+        /while (true) -> breaks , cuz single therad/<br> 
+        event listener, when click send MESSAGE to the queue and the runtime procces the callback that was definded for that event<br> 
+        non-blocking:listen events, handle callbacks, not waiting..
+
+
+        each round of the event loop:<br> 
+            1. run syncronous code , like CONSOLE.LOG<br> 
+            2. run PROMISE callbacks that are ready or microtask like MESSAGE<br> 
+            3. run async task callbacks, like SETTIMEOUT, or dom apis, http apis, that are long time, and this without blocking the main javascript thread
+
+    </p>
+    <div class="video">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PL0vfts4VzfNixzfaQWwDUg3W5TRbE7CyI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!------------------- Videos -------------------------->
+<div class="code-part">
+    <h3 class="code-title">Videos</h3>
+    <p>Javascript in 5 minutes</p>
+    <div class="video">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/c-I5S_zTwAc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p>100 seconds of javascript</p>
+    <div class="video">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PL0vfts4VzfNiI1BsIK5u7LpPaIDKMJIDN" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+
+
+<!------------------- VARIABLES ----------------------->
+<div class="code-part"><h3 class="code-title">Variables</h3>
+<p>var — Can be reassigned but only accessed within a function.<br>
+const — Can not be reassigned and not accessible before they appear within the code.<br>
+let — Similar to const, however, let variable can be reassigned but not re-declared.</p>
+
+<hr class="line">
+
+<p>declaring a variable</p><pre class="code">let a;</pre>
+
+<p>assign a value to the variable</p><pre class="code">a = 10;</pre>
+
+<p>initialize a variable</p><pre class="code">let a = 2;</pre>
+
+<p>referencing the variable</p><pre class="code">console.log(" referencing " + c);</pre>
+
+<hr class="line"> 
+
+<p>variable types</p>
+<pre class="code">
+const string = 'Zsolti';    //string
+let integer = 30;         //number
+const double = 4.5;     //number
+let boolean = true;    //boolean
+const nothing = null;         //Object
+const undefined1 = undefined;    //undefined
+let undefined2;                  //undefined
+
+
+// PRIMITIVES
+    /*
+        Number, String, Boolean, Undefined, Null, BigInt, Symbol
+        immutable variable: cant be diretly changed once theyve been assigned to a variabe BUT they can be reassigned to a different value
+            //js is a dynamic , weakly typed language no type annotations 
+        undefined : default value for a variable, that doasnt have a value assigned to it OR a function that return nothing
+        null: repestents an empty value, but you assign it explicitly
+    */
+
+// OBJECT TYPE
+    /*
+        More complex data structures like:
+        Arrays, Objects, Functions, class instances
+        objects - collection of key - value(properties) and can be MUTATED after being assigned to a variable
+    */
+
+// EXECUTION CONTEXT
+/* 
+    global :  define a function: global : avaible everywhere
+    local :  define a variable in the function, and reference in the global context
+*/
+
+// HOISTING
+/*  
+    when js processes an execution context, its put all the variable at the top ( hoist them to the top of the context )
+    if initailialze a variable bottom, and reference it somewhere higher -> considered declared within this scope,BUT the actual assign happen where is
+
+    var is global, name collision.. in functions 
+    ->
+    let - limited scope to a block statement!!! {} (var -> +parent) - reassign diff values
+    const - like let, cant reassign different values
+*/
+</pre>
+</div>
+
+<!------------------- TEMPLATE STRING ------------------>
+<div class="code-part"><h3 class="code-title">Template String</h3>
+<pre class="code">
+let myname = "Zsolti";
+let myage = 21;
+console.log(  `My name is ${myname} and Iam ${myage}` );
+</pre>
+</div>
+
+<!------------------- LOOPS ---------------------------->
+<div class="code-part"><h3 class="code-title">Loops (for, while, do while)</h3>
+<p>while — Sets up conditions under which aloop executes </p>
+<pre class="code">
+let i = 0;
+while(i <= 10) {
+    console.log(i);
+    i++;
+}
+</pre>
+
+<p>do while — Similar to the while loop, however, it executes at least once and performs a check at the end to see if the condition is met to execute again</p>
+<pre class="code">
+let i = 0;
+do {
+    console.log(i);
+    i++;
+}
+while(i <= 10);
+</pre>
+
+<p>for (initialization; condition for loop; execute after loop)</p>
+<pre class="code">
+for(let i = 0; i <= 10; i++) {
+    console.log(i);
+}
+</pre>
+
+<p>forEach</p>
+<pre class="code">
+numbers = [1,2,4,6,8,5,3];
+numbers.forEach( num => {
+    console.log(num);
+});
+</pre>
+
+<p>break — Used to stop and exit the cycle at certain conditions </p>
+<pre class="code">
+for(let i = 0; i <=10 ; i++) {
+    if (i === 5) {
+        break;
+    }
+    console.log(i); // 0,1,2,3,4
+}
+</pre>
+
+<p>continue — Skip parts of the cycle if certain conditions are met</p>
+<pre class="code">
+for(let i = 0; i <=10 ; i++) {
+    if (i === 5) {
+        continue;
+    }
+    console.log(i); // 0,1,2,3,4,6,7,8,9,10
+}
+</pre>
+</div>
+
+<!------------------- IF ------------------------------->
+<div class="code-part"><h3 class="code-title">IF</h3>
+<pre class="code">
+const tru = true;
+if (tru) {
+    console.log('tru');
+}  else {
+    console.log('tru'tnt');
+}
+
+let x = 12;
+if (x > 0) {
+    console.log('x is above 0');
+} else if (x < 0) {
+    console.log('x is below 0');
+} else {
+    console.log('x is 0');
+}
+</pre>
+</div>
+
+<!------------------- TERNARY OPERATOR ------------------>
+<div class="code-part"><h3 class="code-title">Ternary operator</h3>
+<p>condition ? 'true' : 'false';</p>
+<pre class="code">
+const x = 10;
+const num = x < 0 ? 'negative' : 'positive'; 
+</pre>
+</div>
+
+<!------------------- SWITCH ---------------------------->
+<div class="code-part"><h3 class="code-title">Switch</h3>
+<pre class="code">
+switch(expression) {
+    case 'val1' : 
+        console.log('exp is val1');
+        break;
+
+    case 'val2' : 
+        console.log('exp is val2');
+        break;
+    
+    case 'val3' : 
+        console.log('exp is val3');
+        break;
+
+    default: console.log('exp is neither');
+}
+</pre>
+</div>
+
+<!------------------- OPERATORS ------------------------->
+<div class="code-part"><h3 class="code-title">Operators</h3>
+<p>Basic operators</p>
+<pre class="code">
++  — Addition
+-  — Subtraction 
+*  — Multiplication 
+/  — Division 
+(...)  — Grouping operator, operations within brackets are executed earlier than those outside 
+%  — Modulus (remainder ) 
+++  — Increment numbers 
+--  — Decrement numbers 
+</pre>
+
+
+<p>Comparison Operators</p>
+<pre class="code">
+== — Equal to 
+=== — Equal value and equal type 
+!= — Not equal 
+!== — Not equal value or not equal type 
+> — Greater than 
+< — Less than 
+>= — Greater than or equal to 
+<= — Less than or equal to 
+? — Ternary operator 
+</pre>
+
+<p>Logical Operators</p>
+<pre class="code">
+&& — Logical and 
+|| — Logical or 
+! — Logical not
+</pre>
+</div>
+
+<!------------------- FUNCTIONS ------------------------->
+<div class="code-part"><h3 class="code-title">Functions</h3>
+<p><b>take an input( w/ parameter), do something, produce output when called</b></p>
+<p>Function declarition - Named function - its hoisted</p>
+<pre class="code">
+function hello(input) {
+    const output = "Hello " + input;
+    return output;
+}
+
+hello('Zsolti');
+</pre>
+
+<p>Recursive function - fibonachi</p>
+<pre class="code">
+function fib(n) {
+    if (n < 2) {
+        return n;
+    } else {
+        return fib(n - 1) + fib(n - 2);
+    }
+}
+</pre>
+<div class="video">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/rf60MejMz3E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
+<p>function expression - using a function as a value // its not hoisted</p>
+<pre class="code">
+const hello = function(param) {
+    return `Hello ${param}!`;
+}
+
+hello('Zsolti');
+</pre>
+
+<p>function call parameter</p>
+<pre class="code">
+const func = function(fparam) {
+    fparam();
+}
+
+const another = function() { 
+    console.log('hello'); 
+}
+func(another);
+</pre>
+
+
+<p>IIFE - immediatly envoked function expression</p>
+<pre class="code">
+(function () {
+    const x = 23;
+})();
+</pre>
+
+<p><b>function parameters</b></p>
+<p>with default values</p>
+<pre class="code">
+function addNums(num1 = 10, num2 = 10) {
+    return num1 + num2;
+}
+</pre>
+
+<pre class="code">
+function makeBreakfest(main, side, drink) {
+    console.log(arguments) // get Argument object
+    return `Breakfast: ${arguments[0]}, ${side} and ${drink}`;
+}
+</pre>
+
+<p>if a lot param: use an object for named params</p>
+<pre class="code">
+function makeLunch (opts) {
+    const { main, sideee, drink} = opts;
+    return `Lunch: ${main}, ${sideee} and ${drink}`
+}
+</pre>
+
+<p>if a lot param: use Rest params</p>
+<pre class="code">
+function makeDinner(...args) {
+    return `Dinner includes: ${args.join(', ')}`
+}
+
+
+function sum(...theArgs) {
+    return theArgs.reduce((total, current) => {
+      return total + current;
+    });
+}
+</pre>
+<p>function that returns not one, two functions</p>
+<pre class="code">
+function useName() {
+    let name = 'General Kenobi';
+
+    return [    // return two functions one with parameter
+        () => `Hello there, ${name}`,
+        (newName) => name = newName
+    ]
+}
+const [ hello, setName ] = useName();
+
+console.log(hello());  // Hello there, General Kenobi
+
+setName('General Grievous');
+console.log(hello());  // Hello there, General Grievous
+
+</pre>
+
+<p>constructor function, to make an object</p>
+<pre class="code">
+function Person(name) {
+    this.name = name;
+}
+const u1 = new User("Zsolti");
+</pre>
+</div>
+
+<!------------------- ARROW FUNCTIONS -------------------->
+<div class="code-part"><h3 class="code-title">Arrow functions</h3>
+<pre class="code">
+const addNums2 = (num1, num2 = 2) => {
+    return num1 + num2;
+}
+</pre>
+
+<p>shorter: if theres only one line and no block, implicitly returns the value </p>
+<pre class="code">
+const hello = (input) => output; //
+</pre>
+
+<p>more shorterer: if only one param, you dont have to use ()</p>
+<pre class="code">
+const addFive = num => num + 5;
+</pre>
+
+<p>example use of arrow function:</p>
+<pre class="code">
+setTimeout( () => {
+    console.log("Hello there");
+}, 5000)
+</pre>
+
+<p>pure/impure functions</p>
+<pre class="code">
+let x = 0;
+
+const impure = () => {  
+    x++;    //global var
+    return x **2;
+}
+
+const pure = (x) => x ** 2; 
+</pre>
+<div class="video">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/h33Srr5J9nY?" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+
+<!------------------- CLOSURES --------------------------->
+<div class="code-part"><h3 class="code-title">Closures</h3>
+<p>function within a function</p>
+<p>when the inner function references a variable that was declared in the scope of the outer function<br>
+the variable in the outer function will be maintained in the memory, and the inner function has access to it</p>
+<pre class="code">
+const a = 1;
+const outer = () => {   // creates lexical environment, evry {  lexical enviroment, thats contain its local variables , and also a reference outet enviroment}
+
+    const b = 2;
+    console.log(a,b,c) // c is not defined
+
+    const inner = (message) => {
+        const c = 3;
+        return a + b + c;   // 1,2,3
+    }
+}
+</pre>
+<p>another one</p>
+<pre class="code">
+function outer() {
+    const dog = "DOG";
+    let count = 0;
+
+    function inner() {
+        count++;
+        return `${count} ${dog}`
+    }
+    return inner;
+}
+const fun = outer();
+console.log(fun()); // 1 DOG
+console.log(fun()); // 2 DOG
+console.log(fun()); // 3 DOG
+</pre>
+<div class="video">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/3a0I8ICR1Vg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+
+<!------------------- ARRAYS ----------------------------->
+<div class="code-part"><h3 class="code-title">Arrays</h3>
+<pre class="code">
+const gyumolcsok = [
+    "alma",
+    "körte",        // -> gyumolcsok[1];
+    "mangó",
+    "paradicsom",
+    "dinnye"
+];
+</pre>
+
+<p>Spread</p>
+<pre class="code">
+const nums = [1, 3, 65, 23, 2435, 21, 34, 21, 9845, 27, 56, 2];
+const numsCopy = [...nums];
+const [ first, , third] = nums;
+
+let arr1 = [0, 1, 2];
+let arr2 = [3, 4, 5];
+
+arr1 = [...arr1, ...arr2]; 
+//  arr1 is now [0, 1, 2, 3, 4, 5]
+</pre>
+
+<p>array properties/methods</p>
+<pre class="code">
+const nums = [1, 3, 65, 23, 2435, 21, 34, 21, 9845, 27, 56, 2];
+let numsLength = nums.length;
+let lastNum = nums[numsLength - 1];
+
+nums.forEach((num) => {
+    console.log(num);
+});
+
+let numsString = nums.toString(); // "1,3,65,23,2435,21,34,9845,27,56,2" 
+let numsString2 = nums.join(" - "); // "1-3-65-32-12-343-213"
+
+let deletedNum = nums.pop();
+nums.push(100);
+
+let deletedFirstNum = nums.shift();
+nums.unshift(101);
+
+nums.splice(3, 0, 222, 333, 5666);
+
+const num2 = [3, 654, 32, 12, 3, 213, 22];
+const num3 = nums.concat(num2);
+
+constfruits = ["Apple", "Orange", "Apple", "Mango"];
+consta = fruits.indexOf("Apple");
+
+
+/* The slice() method slices out a piece of an array into a new array. This example slices out a part of an array starting from array element 1 ("Orange"): */
+/* The slice() method can take two arguments like slice(1, 3). The method then selects elements from the start argument, and up to (but not including) the end argument. */
+let fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+let citrus = fruits.slice(1);
+
+
+let numbers = [54, 22, 43, 345, 1, 32, 82, 89, 24, 9];
+
+numbers.sort(function(a, b){return a - b});        // First sort the elements of numbers
+numbers.reverse(function(a, b){return b - a});     // Then reverse the order of the elements
+numbers.sort(function(a, b){return 0.5 - Math.random()}); //Sorting an Array in Random Order
+</pre>
+</div>
+
+<!------------------- OBJECTS ---------------------------->
+<div class="code-part"><h3 class="code-title">Objects</h3>
+<p>key : value<br>this -> object</p>
+<pre class="code">
+const obj = {
+    name: 'Zsolti',
+    age: 20,
+    hello: function() {
+        console.log(`Hello, ${this}`); // this -> obj object 
+    },
+    hello2: () => {
+        console.log(this)  // this -> window
+    }
+}
+</pre>
+
+<p>object w/ arrays</p>
+<pre class="code">
+const person = {
+    firstName: 'Pap',   // -> person.firstName;
+    lastName: 'Zsolt',
+    age: 21,
+    hobbies: [  // array in object
+        'pc', 
+        'movies',   // -> person.hobbies[1];
+        'music'
+    ],
+    address: {  //object in object
+        country: 'Hungary',
+        city: 'Szeghalom',      // -> person.address.city;
+        nums: [
+            3247,   // -> person.address.nums[0];
+            8321
+        ]
+    }
+}
+
+//pulling data out from object
+const { firstName, age, address: {city} } = person;
+
+
+
+const spider = 'spider';
+const legs = 8;
+
+const obj = {
+    spider,                 //property
+    legs,                   //property
+    web: 100,
+    makeWeb: function() {   //method
+        this.web+="*";
+    }
+}
+
+//desctructing
+const { spider, legs } = obj;
+const { spider: mySpider, legs: hasLegs } = obj;
+</pre>
+
+<p>constructor function</p>
+<pre class="code">
+function Person(name) {
+    this.name = name;
+}
+const u1 = new User("Zsolti");
+</pre>
+</div>
+
+<!------------------- THIS ------------------------------->
+<div class="code-part"> <h3 class="code-title">this</h3>
+<p>???</p>
+<pre class="code">
+const obj = {
+    name: 'Zsolti',
+    age: 20,
+    hello: function() {
+        console.log(`Hello, ${this}`); // this -> obj object 
+    },
+    hello2: () => {
+        console.log(this)  // this -> window
+    }
+}
+</pre>
+<pre class="code">
+function Dog() {
+    constself = this;
+    this.breed = 'Wolf';
+
+    setTimeout(function() {
+        console.log(this.breed); // undefined
+        console.log(self.breed); // Wolf
+    }, 0);
+}
+
+function DogBetter() {
+    this.breed = 'Wolf';
+
+    setTimeout(() => {
+        console.log(this.breed); // Wolf
+    }, 0);
+}
+</pre>
+<div class="video">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Pi3QC_fVaD0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+
+<!------------------- ARRAY HIGER ORDER FUNCTIONS ------------------>
+<div class="code-part"><h3 class="code-title">Arrays, objects - higher order functions (forEach, map, reduce, filter, every, some, find)</h3>
+<pre class="code">
+const nums = [45, 4, 9, 16, 25];
+
+const items = [
+    {name: "Bike", price: 200}, 
+    {name: "TV", price: 500},  
+    {name: "Album", price: 30},  
+    {name: "Book", price: 20},  
+    {name: "Phone", price: 400},  
+    {name: "Computer", price: 400},  
+    {name: "Keyboard", price: 100}
+]
+</pre>
+
+<p>The forEach() method iterates over each array element.</p>
+<pre class="code">
+nums.forEach(myMap);
+
+function myForEach(value, index, array) {
+    console.log(value)
+}
+
+items.forEach((item) => {
+    console.log(item.price)
+});
+</pre>
+
+<p>The map() method creates a new array by performing a function on each array element.</p>
+<pre class="code">
+const numsMap = nums.map(myMap);
+
+function myMap(value, index, array) {
+    return value * 2;
+}
+
+const itemNames = items.map((item) => {
+    return item.name;
+});
+</pre>
+
+<p>The reduce() method runs a function on each array element to produce (reduce it to) a single value.</p>
+<pre class="code">
+const sum = nums.reduce(myReduce);
+
+function myReduce(total, value, index, array) {
+    return total + value;
+}
+
+const total = items.reduce((currentTotal, item) => {
+    return item.price + currentTotal;
+}, 0)
+</pre>
+
+<p>The filter() method creates a new array with array elements that passes a test.</p>
+<pre class="code">
+const over18 = numbers.filter(myFilter);
+
+function myFilter(value, index, array) {
+    return value > 18;
+}
+
+const filteredItems = items.filter((item) => {
+    return item.price <= 100;
+});
+</pre>
+
+<p>The every() method check if ALL array values pass a test.</p>
+<pre class="code">
+const allOver18 = numbers.every(myEvery);
+
+function myEvery(value, index, array) {
+    return value > 18;
+}
+
+const allInexpensiveItems = items.every((item) => {
+    return item.price <= 100; 
+});
+</pre>
+
+<p>The some() method check if SOME array values pass a test.</p>
+<pre class="code">
+const someOver18 = numbers.some(mySome);
+
+function mySome(value, index, array) {
+    return value > 18;
+}
+
+const hasInexpensiveItems = items.some((item) => {
+    return item.price <= 100; 
+});
+</pre>
+
+<p>The find() method returns the value of the first array element that passes a test function.</p>
+<pre class="code">
+const first = numbers.find(myFind);   //25
+
+function myFind(value, index, array) {
+    return value > 18;
+}
+
+const foundItem = items.find((item) => {
+    return item.name === "Album"; 
+});
+</pre>
+<div class="video">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/R8rmfD9Y5-c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<hr class="line">
+<div class="video">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/rRgD1yVwIvE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+
+<!------------------- DOM SELECTIONS, TRAVERSING , EVENTS------------------>
+<div class="code-part"><h3 class="code-title">DOM - Selections, Traversing, Event</h3>
+<p>Selecting HTML Elements</p>
+<pre class="code">
+document.getElementById(id)	//Find an element by element id
+document.getElementsByTagName(tagname)	//Find elements by tag name
+document.getElementsByClassName(classname)	//Find elements by class name
+document.querySelector("#help");
+document.querySelectorAll("p.intro");
+</pre>
+
+<p>Changing HTML Elements</p>
+<pre class="code">
+element.innerHTML = " new html content"	// Change the inner HTML of an element
+element.attribute = "new value"	// Change the attribute value of an HTML element
+element.style.property ="new style"  //	Change the style of an HTML element
+element.setAttribute(attribute, value)	// Change the attribute value of an HTML element
+element.classList.add/remove/toggle() // add, remove or toggle class 
+document.getElementById(id).onclick = function(){code}  //  Adding Events Handlers
+document.getElementById("myImage").src = "landscape.jpg";
+</pre>
+
+<p>Adding and Deleting Elements</p>
+<pre class="code">
+document.createElement(element)	// Create an HTML element
+document.removeChild(element)	// Remove an HTML element
+document.appendChild(element)	//Add an HTML element
+document.replaceChild(neew, old)	// Replace an HTML element
+document.write(text)	// Write into the HTML output stream    
+element.remove();
+
+
+//This code creates a new p element:
+const para = document.createElement("p");
+
+//To add text to the p element, you must create a text node first. This code creates a text node:
+const node = document.createTextNode("This is a new paragraph.");
+
+//Then you must append the text node to the p element:
+para.appendChild(node);
+
+//Finally you must append the new element to an existing element.
+//This code finds an existing element:
+const element = document.getElementById("div1");
+
+//This code appends the new element to the existing element:
+element.appendChild(para);
+element.insertBefore(para, child);
+
+const parent = document.getElementById("div1");
+const child = document.getElementById("p1");
+parent.removeChild(child);
+
+
+
+const myNodelist = document.querySelectorAll("p");
+const i;
+for (i = 0; i < myNodelist.length; i++) {
+    myNodelist[i].style.backgroundColor = "red";
+}
+</pre>
+
+<p>Navigation</p>
+<pre class="code">
+parentNode
+childNodes[nodenumber]
+firstChild
+lastChild
+nextSibling
+previousSibling  
+</pre>
+
+<p>addEventListener</p> 
+<pre class="code">
+myForm.addEventListener('submit', onSubmit);
+
+function onSubmit(e) {
+    
+    e.preventDefault(); //the submit button not submitting anymore
+    if (formInput.value !== "") {
+        const li = document.createElement('li');    // create a LI element
+        const text = document.createTextNode(`${formInput.value}`); // create a text node
+        li.appendChild(text);   // append TextNode to the LI element
+    } else {
+        error.innerHTML = "Plesae enter something";
+    }
+}
+
+
+btn.addEventListener('click', (e) => {
+    console.log(e.target); // get the elemt which the event is on
+    console.log(e.target.className); // get the elemt class
+    document.querySelector('#my-form').style.background = "#ccc";  //set background
+    document.querySelector('body').classList.add('bg-dark');       //add class
+});
+</pre>
+<div class="video">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PL4cUxeGkcC9gfoKa5la9dsdCNpuey2s-V" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+
+<!------------------- STRINGS ---------------------------->
+<div class="code-part"><h3 class="code-title">Strings</h3>
+<p><b>Basic properties and methods</b></p>
+<pre class="code">
+let txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+let txtLength = txt.length;
+
+txt.toUpperCase();
+txt.toLowerCase();
+
+let text1 = "Hello";
+let text2 = "World";
+let text3 = text1.concat(" ", text2);
+
+let str = "       Hello World!        ";
+let noWhiteSpace = str.trim();
+
+let str = "HELLO WORLD";
+str.charAt(0);            // returns H
+str.charCodeAt(0);         // returns 72
+
+
+let search1 = "Please locate where 'locate' occurs!";
+let pos1 = str.indexOf("locate");    // 7
+    
+let search2 = "Please locate where 'locate' occurs!";
+let pos2 = str.lastIndexOf("locate");    //21
+
+</pre>
+<p>There are 3 methods for extracting a part of a string:</p>
+<p>slice(start, end)<br>
+substring(start, end)<br>
+substr(start, length) <br>
+</p>
+
+
+<pre class="code">
+    let str = "Apple, Banana, Kiwi";
+    let res = str.slice(7, 13); // Banana
+    let res2 = str.slice(7); // Banana, Kiwi
+
+    let res3 = str.substring(7, 13); //banana
+
+    let res4 = str.substr(7, 6); //banana
+    let res5 = str.substr(7); // banana,kiwi
+    const res6 = str.substr(-4); // kiwi
+</pre>
+
+<p>Replace</p>
+
+<pre class="code">
+    str = "I love apple!";
+    let n = str.replace("apple", "banana");
+</pre>
+
+<p>By default, the replace() method is case sensitive.To replace case insensitive, use a regular expression with an /i flag (insensitive)</p>
+<pre class="code">
+    str = "I love apple!";
+    let n = str.replace(/APPLE/i, "banana");
+</pre>
+
+<p>To replace all matches, use a regular expression with a /g flag (global match)</p>
+<pre class="code">
+    str = "I love apple and apple!";
+    let n = str.replace(/apple/g, "banana");
+</pre>
+
+<p>A string can be converted to an array with the split() method:</p>
+<pre class="code">
+    const txt = "a,b,c,d,e";   // String
+    txt.split(",");          // Split on commas
+    
+    const txt = "Hello";       // String
+    txt.split("");           // Split in characters
+</pre>
+</div>
+
+<!------------------- CLASSES ---------------------------->
+<div class="code-part"><h3 class="code-title">Classes</h3>
+<p>Create a class</p>
+<pre class="code">
+class Person {
+    constructor(firstName, lastName, dob) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = new Date(dob);
+    }
+    
+    getBirthYear() {
+        return this.dob.getFullYear();
+    }
+
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+</pre>
+
+<p>Initaite object, create a person object</p>
+<pre class="code">
+    const person = new Person('Kis', 'Béla', '1979-05-13'); //instance
+    console.log(person);
+    console.log(person.firstName);
+    console.log(person.getBirthYear());
+</pre>
+</div>
+
+<!------------------- CLASS INHERITENCE ------------------>
+<div class="code-part"><h3 class="code-title">Class inheritence</h3>
+<p>Parent class</p>
+<pre class="code">
+class User {
+    constructor(email, name, password) {
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.score = 0;
+        this.online = false;
+    }
+    login() {
+        console.log(this.name, "logged in");
+        this.online = true;
+    }
+    logout() {
+        console.log(this.name, "logged out");
+        this.online = false;
+    }
+    updateScore() {
+        this.score++;
+        console.log(this.name, "'s score: ", this.score);
+    }
+}
+</pre>
+
+<p>Child class <b>extends</b> parent</p>
+<pre class="code">
+class Admin extends User{
+    //no constructor here : uses Users constructor
+    deleteUser(user) {
+        users = users.filter( u => {
+            return u.email != user.email; 
+        })
+    }
+}
+</pre>
+<p>Child class <b>extends</b> parent</p>
+<pre class="code">
+class SuperUser extends User {
+    constructor(email, name, password, code) {
+        super(email, name, password);
+        this.code = code;
+    }
+    getCode() {
+        return this.code;
+    }
+}
+</pre>
+
+<p>inisiate new objects</p>
+<pre class="code">
+    const u1 = new User("zsolti@asd.hu", "Zsoliti", "asdasdasd");
+    const u2 = new User("@assd.hu", "UJsgsd", "ssdsss");
+    const u3 = new User("assd@assdsss.hu", "KJfassd", "sss");
+        u1.login();
+        u1.updateScore();
+        u1.updateScore();
+        u1.updateScore();
+
+    let users = [u1, u2, u3];
+    
+    const a1 = new Admin("asd@asd.hu", "ssss", "asdasasddasd");
+    //console.log(users);
+    a1.deleteUser(u2);
+    //console.log(users);
+</pre>
+</div>
+
+<!------------------- TRY CATCH FINALLY ------------------>
+<div class="code-part"><h3 class="code-title">try catch finally</h3>
+<pre class="code">
+try {
+    throw new Error();
+    console.log("not works");
+
+} catch (error) {
+    console.log("there was an error in the try");
+
+} finally {
+    console.log("always works");
+}
+</pre>
+</div>
+
+
+<!------------------- RANDOM NUMBER ---------------------->
+<div class="code-part"><h3 class="code-title">Random number</h3>
+<button class="copy">
+    <span class="copy-text">Copy to clipboard</span>
+</button>
+<pre class="code">
+function genRandom(min, max) { 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+</pre>
+</div>
+<!------------------- ELAPSED TIMER ------------------>
+<div class="code-part"><h3 class="code-title">Elapsed time</h3>
+<button class="copy">
+    <span class="copy-text">Copy to clipboard</span>
+</button>
+<pre class="code">
+const tick = Date.now();
+const log = () => console.log(`Elapsed: ${Date.now() - tick}ms`);
+</pre>
+</div>
+
+</div>
+</body>
+</html>
