@@ -75,37 +75,36 @@
 <div class="code-part">
     <h3 class="code-title">About</h3>
     <p>
-        <b>high level</b><br>
-        proivides simpliflication on computers hardwer<br> 
-        == machine code (01001) == assembly (cpu ,os függ) == c(systax but memory allocation.. ) <br> 
-            == high level - simplify devs to write apps (USE ABSCRAPTIONS like garbage collection, memory allocation, dynamic typing)<br> 
-    allocat memory to store things in the runtime(variables) and thred (to execute)
+    <b>high level</b><br> 
+    -proivides simpliflication to write apps (like garbage collection, memory allocation, dynamic typing)<br> 
+    allocate memory to store things in the runtime(variables) and thread (to execute)
     </p>
     <p>
         <b>interpreted</b><br>
-        IN:javascript -> interpreter -> OUT:machine code(bytecode) <br>
+        javascript: js -> interpreter -> machine code(bytecode) <br>
         ----<br>
-        Compiled like Java, C<br>
-        IN:java -> compiler - completes all line code -> complied -> OUT
+        Java: java-> compiler (completes all line code) -> complied -> machine code(bytecode)
     </p>
     <p>
         <b>prototype-based inheritence</b><br>
-        ecerything in js is an object<br>
-        and all objects holds a link to its prototype (objects can inmheritence from objects)<br>
+        - everything in js is an object<br>
+        - all objects holds a link to its prototype (objects can inherit from other objects)<br>
     </p>
     <p>
-        <b>multi-paradigm</b><br>
-        like all General purpuse languages  -  code style<br> 
-        declerative - functional approche<br> 
-        imperative - object orianted approach
+        <b>multi-paradigm(code style)</b><br>
+        - declerative - functional approach<br> 
+        - imperative - object orianted approach
+    </p>
+    <p>
+        browser engines <br>
+        - spidermonkey - mozzila<br> 
+        - v8 - google
     </p>
     <p>
         <b>dynamic language </b><br>
-        no use any exlcict type definitions (no int xy)<br> 
-        implicit, type associatod with the runtime values<br> 
-        //-- these are handled by browsers--\\<br> 
-        //      spidermonkey - mozzila<br> 
-        //      v8 - google
+        no explict type definitions (pl: int x)<br> 
+        its implicit, type associated with the runtime values<br> 
+        // these are handled by browsers  
     </p>
     <p>
         <b>JIT (just in time) compiled</b><br>
@@ -113,14 +112,14 @@
     </p>
     <p>
         <b>single-threaded</b><br>
-        JUST one event (like- while(true))<br> 
-        when executing js code:<br> 
+        one event-llop<br> 
+        - when executing js code:<br> 
         MEMORY - two regions allocated<br> 
             CALLSTACK<br> 
-                - stackedd, console.log is  one in done operation gets on stack and then immediatly pop from the stack, store functions<br> 
+            - stacked, console.log is one in done operation gets on stack and then immediatly pop from the stack, store functions<br> 
             HEAP<br> 
-                - unstracted, store objects(can referenced more)<br> 
-                    when its no longer referenced -> garbage-collectore
+            - unstacked, store objects(can referenced more)<br> 
+            when its no longer referenced -> garbage-collected
     </p>
     <p>
         <b>garbage-collected</b><br>
@@ -130,7 +129,6 @@
 
     <p>
         <b>non-blocking event loop</b><br>
-        /while (true) -> breaks , cuz single therad/<br> 
         event listener, when click send MESSAGE to the queue and the runtime procces the callback that was definded for that event<br> 
         non-blocking:listen events, handle callbacks, not waiting..
 
