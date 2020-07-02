@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="scripts/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Help</title>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-lg navbar-custom">
+    <button class="navbar-toggler m-auto" type="button" data-toggle="collapse" data-target="#navbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Javascript</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="index.html">Javascript</a>
+                    <a class="dropdown-item" href="javascript-promises-fetch.html">Promises / Fetch</a>
+                    <a class="dropdown-item" href="typescript.html">Typescript</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">Node.js</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="nodejs.html">Node.js</a>
+                    <a class="dropdown-item" href="express.html">Express</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="react.html">React</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">CSS</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="sass.html">Sass</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">PHP</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="php.html">PHP</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ajax.html">AJAX</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="git.html">Git</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">More</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="internet.html">Internet</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="wrapper">
+    <h1 class="title">JAVA</h1>
+    <div class="search">
+        <input type="text">
+    </div>
+
+<!------------------- specs ------------------>
+<div class="code-part"><h3 class="code-title">Specs</h3>
+<p>compile</p>
+<pre class="code-cmd">javac Class.java</pre>
+<p>run</p>
+<pre class="code-cmd">java Class.java</pre>
+</div>
+
+<!------------------- variables ------------------>
+<div class="code-part"><h3 class="code-title">variables</h3>
+<p><b>rules:</b><br>
+    Names can contain letters, digits, underscores, and dollar signs<br>
+    Names must begin with a letter<br>
+    Names should start with a lowercase letter and it cannot contain whitespace<br>
+    Names can also begin with $ and _ (but we will not use it in this tutorial)<br>
+    Names are case sensitive ("myVar" and "myvar" are different variables)<br>
+    Reserved words (like Java keywords, such as int or boolean) cannot be used as names</p>
+
+<p><b>data types</b><br></p>
+<p>Primitive (byte, short, int, long, float, double, boolean, char)<br>
+- A primitive data type specifies the size and type of variable values, and it has no additional methods.<br>
+</p>
+<p>Non-primitive data types(String, Arrays, Classes)<br>
+- Non-primitive data types are called reference types because they refer to objects.
+</p>
+<p>The main difference between primitive and non-primitive data types are<br>
+Primitive types are predefined in Java. Non-primitive types are created by the programmer and is not defined by Java (except for String).<br>
+Non-primitive types can be used to call methods to perform certain operations, while primitive types cannot.<br>
+A primitive type has always a value, while non-primitive types can be null.<br>
+A primitive type starts with a lowercase letter, while non-primitive types starts with an uppercase letter.<br>
+The size of a primitive type depends on the data type, while non-primitive types have all the same size.<br>
+</p>
+<p><b>Sizes:</b><br>
+boolean	(1 bit) - Stores true or false values<br>
+byte (1 byte) -	Stores whole numbers from -128 to 127<br>
+char (2 bytes) - Stores a single character/letter or ASCII values<br>
+short (2 bytes) - Stores whole numbers from -32,768 to 32,767<br>
+int	(4 bytes) -	Stores whole numbers from -2,147,483,648 to 2,147,483,647<br>
+float (4 bytes) - Stores fractional numbers. Sufficient for storing 6 to 7 decimal digits<br>
+double (8 bytes) - Stores fractional numbers. Sufficient for storing 15 decimal digits<br>
+long (8 bytes) - Stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807<br>
+</p>
+
+<p>make variable</p>
+<pre class="code">
+//declare
+int myNum;
+
+//assign value
+myNum = 15;
+
+//initialize
+int myNum = 5;              
+float myFloatNum = 5.99f; 
+char myLetter = 'D';      
+boolean myBool = true;     
+String myText = "Hello"; 
+</pre>
+
+<p>Type casting is when you assign a value of one primitive data type to another type.</p>
+<p>Widening Casting (automatically) - converting a smaller type to a larger type size(byte -> short -> char -> int -> long -> float -> double)</p>
+<pre class="code">
+int myInt = 9;
+double myDouble = myInt; // Automatic casting: int to double
+</pre>
+<p>Narrowing Casting (manually) - converting a larger type to a smaller size type(double -> float -> long -> int -> char -> short -> byte)</p>
+<pre class="code">double myDouble = 9.78;
+int myInt = (int) myDouble; // Manual casting: double to int
+</pre>
+</div>
+
+
+<!------------------- operators ------------------>
+<div class="code-part"><h3 class="code-title">operators</h3>
+    <p>Arithmetic operators - perform common mathematical operations (+, -, *, /, %,  ++, --)<br>
+        Assignment operators - assign values to variables (=, +=, -=, *=, /=, %=, &=, |=, ^=, >>=, <<=)<br>
+        Comparison operators - compare two values (==, !=, <, >, >=, <=)<br>
+        Logical operators - determine the logic between variables or values (&&, ||, !)<br>
+        Bitwise operators - perform binary logic with the bits of an integer or long integer</p>
+        <p>
+            &	AND - Sets each bit to 1 if both bits are 1 <br>
+            |	OR - Sets each bit to 1 if any of the two bits is 1<br>
+            ~	NOT - Inverts all the bits<br>
+            ^	XOR - Sets each bit to 1 if only one of the two bits is 1<br>
+            <<	Zero-fill left shift - Shift left by pushing zeroes in from the right and letting the leftmost bits fall off<br>
+            >>	Signed right shift - Shift right by pushing copies of the leftmost bit in from the left and letting the rightmost bits fall off<br>
+            >>>	Zero-fill right shift - Shift right by pushing zeroes in from the left and letting the rightmost bits fall off
+        </p>
+</div>
+
+<!------------------- strings ------------------>
+<div class="code-part"><h3 class="code-title">strings</h3>
+<pre class="code">
+String txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //double quotes
+</pre>
+<p>
+    length()	Returns the length of a specified string<br>
+    indexOf()	Returns the position of the first found occurrence of specified characters in a string<br>
+    lastIndexOf()	Returns the position of the last found occurrence of specified characters in a string<br>
+    charAt()	Returns the character at the specified index (position)<br>
+    toUpperCase()	Converts a string to upper case letters	<br>
+    toLowerCase()	Converts a string to lower case letters<br>
+    compareTo()	Compares two strings lexicographically<br>
+    compareToIgnoreCase()	Compares two strings lexicographically, ignoring case differences<br>
+    isEmpty()	Checks whether a string is empty or not	<br>
+    contains()	Checks whether a string contains a sequence of characters<br>
+    matches()	Searches a string for a match against a regular expression, and returns the matches<br>
+    equals()	Compares two strings. Returns true if the strings are equal, and false if not<br>
+    equalsIgnoreCase()	Compares two strings, ignoring case considerations<br>
+    startsWith()	Checks whether a string starts with specified characters<br>
+    endsWith()	Checks whether a string ends with the specified character(s)<br>
+    replace()	Searches a string for a specified value, and returns a new string where the specified values are replaced<br>
+    replaceFirst()	Replaces the first occurrence of a substring that matches the given regular expression with the given replacement<br>
+    replaceAll()	Replaces each substring of this string that matches the given regular expression with the given replacement<br>
+    toCharArray()	Converts this string to a new character array<br>
+    concat()	Appends a string to the end of another string<br>
+    substring()	Extracts the characters from a string, beginning at a specified start position, and through the specified number of character<br>
+    split()	Splits a string into an array of substrings<br>
+    toString()	Returns the value of a String object<br>
+    trim()	Removes whitespace from both ends of a string
+</p>
+
+</div>
+
+<!------------------- math ------------------>
+<div class="code-part"><h3 class="code-title">math</h3>
+    <p>The Java Math class has many methods that allows you to perform mathematical tasks on numbers.<br>
+        All Math methods are static.
+    </p>
+    <p>
+    random()	Returns a random number between 0 and 1<br>
+    floor(x)	Returns the value of x rounded down to its nearest integer<br>
+    ceil(x)	Returns the value of x rounded up to its nearest integer<br>
+    round(x)	Returns the value of x rounded to its nearest integer<br>
+    max(x, y)	Returns the number with the highest value<br>
+    min(x, y)	Returns the number with the lowest value<br>
+    abs(x)	Returns the absolute value of x	<br>
+    pow(x, y)	Returns the value of x to the power of y<br>
+    sqrt(x)	Returns the square root of x
+</p>
+</div>
+
+<!------------------- conditionals ------------------>
+<div class="code-part"><h3 class="code-title">conditionals</h3>
+    <p>if</p>
+<pre class="code">
+int time = 22;
+
+if (time < 10) {
+    System.out.println("Good morning.");
+} else if (time < 20) {
+    System.out.println("Good day.");
+} else {
+    System.out.println("Good evening.");
+}
+
+//ternary
+String result = (time < 18) ? "Good day." : "Good evening.";
+</pre>
+
+    <p>switch</p>
+<pre class="code">
+int day = 4;
+
+switch (day) {
+    case 1:
+        System.out.println("Monday");
+        break;
+    case 2:
+        System.out.println("Tuesday");
+        break;
+    case 3:
+        System.out.println("Wednesday");
+        break;
+    case 4:
+        System.out.println("Thursday");
+        break;
+    case 5:
+        System.out.println("Friday");
+        break;
+    case 6:
+        System.out.println("Saturday");
+        break;
+    case 7:
+        System.out.println("Sunday");
+        break;
+    default: 
+        System.out.println("?");
+}
+</pre>
+</div>
+
+<!------------------- loops ------------------>
+<div class="code-part"><h3 class="code-title">loops</h3>
+    <p>while</p>
+<pre class="code">
+int i = 0;
+
+while (i < 5) {
+  System.out.println(i);
+  i++;
+}
+</pre>
+
+    <p>do - while</p>
+<pre class="code">
+int i = 0;
+
+do {
+    System.out.println(i);
+    i++;
+}
+while (i < 5);
+</pre>
+
+    <p>for</p>
+<pre class="code">
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
+</pre>
+
+    <p>for-each (arrays)</p>
+<pre class="code">
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+for (String i : cars) {
+    System.out.println(i);
+}
+</pre>
+
+<p>break- The break statement used to jump out of a loop.</p>
+<p>continue - The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.</p>
+</div>
+
+<!------------------- arrays ------------------>
+<div class="code-part"><h3 class="code-title">arrays</h3>
+<p>Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.</p>
+<pre class="code">
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+int[] myNum = {10, 20, 30, 40};
+
+System.out.println(cars.length);
+</pre>
+
+<p>multidimensional array</p>
+<pre class="code">
+int[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };
+int x = myNumbers[1][2];
+
+System.out.println(x); // Outputs 7
+
+for (int i = 0; i < myNumbers.length; ++i) {
+    for(int j = 0; j < myNumbers[i].length; ++j) {
+        System.out.println(myNumbers[i][j]);
+    }
+}
+</pre>
+</div>
+
+<!------------------- methods/functions ------------------>
+<div class="code-part"><h3 class="code-title">methods/functions</h3>
+    <p>A method is a block of code which only runs when it is called.<br>
+        You can pass data, known as parameters, into a method.<br>
+        Methods are used to perform certain actions, and they are also known as functions.<br>
+        Why use methods? To reuse code: define the code once, and use it many times.</p>
+<pre class="code">
+public class MyClass {
+    static void myMethod(String fname, int age) {
+        System.out.println(fname + " is " + age);
+    }
+
+    static int myMethod2(int x, int y) {
+        return x + y;
+    }
+    
+    public static void main(String[] args) {
+        myMethod("Liam", 5);
+        System.out.println(myMethod(3,2));
+    }
+}    
+</pre>
+    
+<p>With method overloading, multiple methods can have the same name with different parameters:</p>
+<pre class="code">
+static int plusMethod(int x, int y) {
+    return x + y;
+}
+    
+static double plusMethod(double x, double y) {
+    return x + y;
+}
+</pre>
+    <p>Scopes - In Java, variables are only accessible inside the region they are created. This is called scope.</p>
+    <p>Method Scope - Variables declared directly inside a method are available anywhere in the method following the line of code in which they were declared.</p>
+<pre class="code">
+public class MyClass {
+    public static void main(String[] args) {
+    
+        // Code here cannot use x
+    
+        int x = 100;
+    
+        // Code here can use x
+        System.out.println(x);
+    }
+}
+</pre>
+    <p>Block Scope
+        A block of code refers to all of the code between between curly braces {}. Variables declared inside blocks of code are only accessible by the code between the curly braces which follows the line in which the variable was declared. A block of code may exist on its own or it may belong to an if, while or for statement. In the case of for statements, variables declared in the statement itself are also available inside the block's scope.</p>
+<pre class="code">
+public class MyClass {
+    public static void main(String[] args) {
+    
+        // Code here CANNOT use x
+    
+        {      // This is a block
+    
+        // Code here CANNOT use x
+    
+        int x = 100;
+    
+        // Code here CAN use x
+        System.out.println(x);
+    
+        }     / / The block ends here
+    
+        // Code here CANNOT use x
+    }
+}
+</pre>
+</div>
+
+<!------------------- OOP ------------------>
+<div class="code-part"><h3 class="code-title">OOP</h3>
+<p>
+    object-oriented programming is about creating objects that contain both data and methods.<br>
+    Object-oriented programming has several advantages:<br>
+    
+    OOP is faster and easier to execute<br>
+    OOP provides a clear structure for the programs<br>
+    OOP helps to keep the Java code DRY "Don't Repeat Yourself", and makes the code easier to maintain, modify and debug<br>
+    OOP makes it possible to create full reusable applications with less code and shorter development time<br>
+</p>
+
+    <p>Classes and Objects
+        Classes and objects are the two main aspects of object-oriented programming.<br>
+        A Class is like an object constructor, or a "blueprint" for creating objects.</p>
+        a class is a template for objects, and an object is an instance of a class.<br>
+        When the individual objects are created, they inherit all the variables and methods from the class.
+        Everything in Java is associated with classes and objects, along with its attributes and methods. 
+</div>
+
+<!------------------- classes ------------------>
+<div class="code-part"><h3 class="code-title">classes</h3>
+<p>create class</p>
+<pre class="code">
+public class MyClass {
+    //Class Attributes
+    int x = 5; 
+    int y = 10;
+
+    //Class Methods
+    static void myMethod() {
+        System.out.println("Hello World!");
+    }
+}
+</pre>
+<pre class="code">
+public static void main(String[] args) {
+    MyClass myObj = new MyClass();
+    System.out.println(myObj.x);
+}
+</pre>
+<p>static</p>
+<pre class="code">
+public class MyClass {
+    // Static method
+    static void myStaticMethod() {
+        System.out.println("Static methods can be called without creating objects");
+    }
+
+    // Public method
+    public void myPublicMethod() {
+        System.out.println("Public methods must be called by creating objects");
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        myStaticMethod(); // Call the static method
+        // myPublicMethod(); This would compile an error
+
+        MyClass myObj = new MyClass(); // Create an object of MyClass
+        myObj.myPublicMethod(); // Call the public method on the object
+    }
+}
+</pre>
+
+<p>constructor</p>
+<pre class="code">
+public class Person {
+  int age;  
+
+  // Create a class constructor for the MyClass class
+  public Person(age) {
+    this.age = age;  
+  }
+
+  public static void main(String[] args) {
+    Person p = new Person(25); 
+  }
+}
+</pre>
+
+</div>
+
+<!------------------- modifiers ------------------>
+<div class="code-part"><h3 class="code-title">modifiers</h3>
+<p>Access Modifiers - controls the access level meaning that it is used to set the access level for classes, attributes, methods and constructors.<br>
+For classes:<br>
+public - The class is accessible by any other class	<br>
+default - The class is only accessible by classes in the same package. This is used when you don't specify a modifier. You will learn more about packages in the Packages chapter<br>
+<br>
+For attributes, methods and constructors:<br>
+public - The code is accessible for all classes	<br>
+private - The code is only accessible within the declared class	<br>
+default	- The code is only accessible in the same package. This is used when you don't specify a modifier. You will learn more about packages in the Packages chapter<br>
+protected -	The code is accessible in the same package and subclasses. You will learn more about subclasses and superclasses in the Inheritance chapter
+</p> 
+
+
+<p>Non-Access Modifiers - do not control access level, but provides other functionality<br>
+For classes:<br>
+final -	The class cannot be inherited by other classes (You will learn more about inheritance in the Inheritance chapter)<br>
+abstract - The class cannot be used to create objects (To access an abstract class, it must be inherited from another class. You will learn more about inheritance and abstraction in the Inheritance and Abstraction chapters)<br>
+<br>
+For attributes, methods and constructors:<br>
+final - Attributes and methods cannot be overridden/modified<br>
+static - Attributes and methods belongs to the class, rather than an object<br>
+abstract - Can only be used in an abstract class, and can only be used on methods. The method does not have a body, for example abstract void run();. The body is provided by the subclass (inherited from). You will learn more about inheritance and abstraction in the Inheritance and Abstraction chapters<br>
+transient - Attributes and methods are skipped when serializing the object containing them<br>
+synchronized - Methods can only be accessed by one thread at a time<br>
+volatile - The value of an attribute is not cached thread-locally, and is always read from the "main memory"
+</p>
+
+</div>
+
+<!------------------- Encapsulation ------------------>
+<div class="code-part"><h3 class="code-title">Encapsulation</h3>
+<p>
+    the "sensitive" data is hidden from users.<br>
+    Better control of class attributes and methods<br>
+    Class attributes can be made read-only (if you only use the get method), or write-only (if you only use the set method)<br>
+    Flexible: the programmer can change one part of the code without affecting other parts<br>
+    Increased security of data<br>
+    declare class variables/attributes as private<br>
+    provide public get and set methods to access and update the value of a private variable
+</p>
+
+<p>Getters and Setters</p>
+<pre class="code">
+public class Person {
+    private String name; // private = restricted access
+    
+    // Getter
+    public String getName() {
+        return name;
+    }
+    
+    // Setter
+    public void setName(String newName) {
+        this.name = newName;
+    }
+}
+</pre>
+</div>
+
+
+<!------------------- packages ------------------>
+<div class="code-part"><h3 class="code-title">Packages & API</h3>
+<p>
+    A package in Java is used to group related classes (avoid name conflicts, and to write a better maintainable code). Packages are divided into two categories: <br>
+
+    <b>Built-in Packages (packages from the Java API)</b><br>
+        The Java API is a library of prewritten classes, that are free to use, included in the Java Development Environment.<br>
+        The library is divided into packages and classes. Meaning you can either import a single class (along with its methods and attributes), or a whole package that contain all the classes that belong to the specified package.
+        To use a class or a package from the library, you need to use the import keyword:</p>
+<pre class="code">
+    import java.util.Scanner; //In the example above, java.util is a package, while Scanner is a class of the java.util package.
+    import java.util.* // Import the whole package
+</pre>
+
+        <p><b>User-defined Packages</b></p>
+<pre class="code">
+package mypack;
+
+class MyPackageClass {
+    public static void main(String[] args) {
+       System.out.println("This is my package!");
+    }
+}
+</pre>
+</div>
+
+
+<!------------------- inheritence ------------------>
+<div class="code-part"><h3 class="code-title">inheritence</h3>
+<p>In Java, it is possible to inherit attributes and methods from one class to another</p>
+
+<pre class="code">
+class Vehicle {
+    protected String brand = "Ford";        
+    public void honk() {                    
+        System.out.println("Tuut, tuut!");
+    }
+}
+    
+class Car extends Vehicle {
+    private String modelName = "Mustang"; 
+
+    public static void main(String[] args) {
+
+        Car myCar = new Car();
+        myCar.honk();
+    
+        System.out.println(myCar.brand + " " + myCar.modelName);
+    }
+}
+</pre>
+</div>
+
+
+<!------------------- Polymorphism ------------------>
+<div class="code-part"><h3 class="code-title">Polymorphism</h3>
+    <p>Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance. <br>
+    Like we specified in the previous chapter; Inheritance lets us inherit attributes and methods from another class. Polymorphism uses those methods to perform different tasks. This allows us to perform a single action in different ways.</p>
+<pre class="code">
+class Animal {
+    public void animalSound() {
+        System.out.println("The animal makes a sound");
+    }
+}
+        
+class Pig extends Animal {
+    public void animalSound() {
+        System.out.println("The pig says: wee wee");
+    }
+}
+        
+class Dog extends Animal {
+    public void animalSound() {
+        System.out.println("The dog says: bow wow");
+    }
+}
+</pre>
+</div>
+
+
+<!------------------- Abstraction ------------------>
+<div class="code-part"><h3 class="code-title">Abstraction</h3>
+<p>Data abstraction is the process of hiding certain details and showing only essential information to the user. <br>
+Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).<br>
+Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).</p>
+
+<pre class="code">
+abstract class Animal {
+    public abstract void animalSound();
+    
+    public void sleep() {
+        System.out.println("Zzz");
+    }
+}
+
+class Pig extends Animal {
+    public void animalSound() {
+        System.out.println("The pig says: wee wee");
+    }
+}
+
+class MyMainClass {
+    public static void main(String[] args) {
+        Pig myPig = new Pig();
+        myPig.animalSound();
+        myPig.sleep();
+    }
+}
+</pre>
+</div>
+
+
+<!------------------- Interface ------------------>
+<div class="code-part"><h3 class="code-title">Interface</h3>
+<p>Another way to achieve abstraction in Java, is with interfaces. <br>
+    To implement multiple interfaces, separate them with a comma<br>
+    An interface is a completely "abstract class" that is used to group related methods with empty bodies<br>
+    Like abstract classes, interfaces cannot be used to create objects<br>
+    Interface methods do not have a body - the body is provided by the "implement" class<br>
+    On implementation of an interface, you must override all of its methods<br>
+    Interface methods are by default abstract and public<br>
+    Interface attributes are by default public, static and final<br>
+    An interface cannot contain a constructor (as it cannot be used to create objects)<br>
+    </p>
+<pre class="code">
+
+interface Animal {
+    public void animalSound(); 
+    public void sleep(); 
+}
+
+class Pig implements Animal {
+    public void animalSound() {
+        System.out.println("The pig says: wee wee");
+    }
+
+    public void sleep() {
+        System.out.println("Zzz");
+    }
+}
+
+class MyMainClass {
+
+    public static void main(String[] args) {
+        Pig myPig = new Pig();
+        myPig.animalSound();
+        myPig.sleep();
+    }
+}
+</pre>
+</div>
+
+
+<!------------------- Enums ------------------>
+<div class="code-part"><h3 class="code-title">Enums</h3>
+<p>An enum is a special "class" that represents a group of constants (unchangeable variables, like final variables). <br>
+    An enum can, just like a class, have attributes and methods. The only difference is that enum constants are public, static and final (unchangeable - cannot be overridden).
+    To create an enum, use the enum keyword (instead of class or interface), and separate the constants with a comma. Note that they should be in uppercase letters:</p>
+<pre class="code">
+public class MyClass {
+    enum Level {
+        LOW,
+        MEDIUM,
+        HIGH
+    }
+    
+    public static void main(String[] args) {
+        Level myVar = Level.MEDIUM; 
+        System.out.println(myVar);
+    }
+}
+</pre>
+<p>enum in switch and for</p>
+<pre class="code">
+enum Level {
+    LOW,
+    MEDIUM,
+    HIGH
+}
+    
+public class MyClass {
+    public static void main(String[] args) {
+        Level myVar = Level.MEDIUM;
+    
+        switch(myVar) {
+        case LOW:
+            System.out.println("Low level");
+            break;
+        case MEDIUM:
+            System.out.println("Medium level");
+            break;
+        case HIGH:
+            System.out.println("High level");
+            break;
+        }
+
+        for (myVar : Level.values()) {
+            System.out.println(myVar);
+        }
+    }
+}
+</pre>
+</div>
+
+
+
+<!------------------- Scanner ------------------>
+<div class="code-part"><h3 class="code-title">Scanner</h3>
+<pre class="code">
+import java.util.Scanner;
+
+class MyClass {
+    public static void main(String[] args) {
+        Scanner myObj = new Scanner(System.in);
+
+        System.out.println("Enter name, age and salary:");
+
+        // String input
+        String name = myObj.nextLine();
+
+        // Numerical input
+        int age = myObj.nextInt();
+        double salary = myObj.nextDouble();
+
+        // Output input by user
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Salary: " + salary);
+    }
+}
+</pre>
+</div>
+
+<!------------------- Date/time ------------------>
+<div class="code-part"><h3 class="code-title">Date / Time</h3>
+<pre class="code">
+import java.time.LocalDateTime; // Import the LocalDateTime class
+import java.time.format.DateTimeFormatter; // Import the DateTimeFormatter class
+
+public class MyClass {
+    public static void main(String[] args) {
+        LocalDateTime myDateObj = LocalDateTime.now();
+        System.out.println("Before formatting: " + myDateObj);
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+        String formattedDate = myDateObj.format(myFormatObj);
+        System.out.println("After formatting: " + formattedDate);
+    }
+}
+</pre>
+</div>
+
+
+<!------------------- ArrayList/ LinkedList ------------------>
+<div class="code-part"><h3 class="code-title">ArrayList / LinkedList</h3>
+<p>The ArrayList class is a resizable array, which can be found in the java.util package. <br>
+    The difference between a built-in array and an ArrayList in Java, is that the size of an array cannot be modified</p>
+<pre class="code">
+import java.util.ArrayList;
+import java.util.Collections;  // Import the Collections class
+
+public class MyClass {
+    public static void main(String[] args) {
+        ArrayList&lt;String> cars = new ArrayList&lt;String>();
+        cars.add("Volvo");
+        cars.add("BMW");
+        cars.add("Ford");
+        cars.add("Mazda");
+        System.out.println(cars);
+        Collections.sort(cars);  // Sort cars
+
+        cars.remove(0);
+        cars.set(0, "Opel");
+        cars.get(0);
+        cars.clear();
+        cars.size();
+
+        for (int i = 0; i < cars.size(); i++) {
+            System.out.println(cars.get(i));
+        }
+
+        for (String i : cars) {
+            System.out.println(i);
+        }
+    }
+}
+</pre>
+
+<p>LinkedList</p>
+<pre class="code">
+import java.util.LinkedList;
+
+public class MyClass {
+    public static void main(String[] args) {
+        LinkedList&lt;String> cars = new LinkedList&lt;String>();
+        cars.add("Volvo");
+        cars.add("BMW");
+        cars.add("Ford");
+        cars.add("Mazda");
+        System.out.println(cars);
+    }
+}
+</pre>
+<p>For many cases, the ArrayList is more efficient as it is common to need access to random items in the list, but the LinkedList provides several methods to do certain operations more efficiently: <br>
+    addFirst()	Adds an item to the beginning of the list.	<br>
+    addLast()	Add an item to the end of the list	<br>
+    removeFirst()	Remove an item from the beginning of the list.	<br>
+    removeLast()	Remove an item from the end of the list	<br>
+    getFirst()	Get the item at the beginning of the list	<br>
+    getLast()	Get the item at the end of the list
+</p>
+
+<p><b>ArrayList vs. LinkedList </b> <br>
+    The LinkedList class is a collection which can contain many objects of the same type, just like the ArrayList.<br>
+    
+    The LinkedList class has all of the same methods as the ArrayList class because they both implement the List interface. This means that you can add items, change items, remove items and clear the list in the same way.<br>
+    
+    However, while the ArrayList class and the LinkedList class can be used in the same way, they are built very differently.<br>
+    
+   <b> How the ArrayList works</b><br>
+    The ArrayList class has a regular array inside it. When an element is added, it is placed into the array. If the array is not big enough, a new, larger array is created to replace the old one and the old one is removed.
+    
+    <b>How the LinkedList works</b> <br>
+    The LinkedList stores its items in "containers." The list has a link to the first container and each container has a link to the next container in the list. To add an element to the list, the element is placed into a new container and that container is linked to one of the other containers in the list.<br>
+    <br>
+    <b>It is best to use an ArrayList when:</b> <br>
+    You want to access random items frequently.<br>
+    You only need to add or remove elements at the end of the list.<br>
+
+    <b>It is best to use a LinkedList when:</b> <br>
+    You only use the list by looping through it instead of accessing random items. <br>
+    You frequently need to add and remove items from the beginning or middle of the
+    list.</p>
+</div>
+
+<!------------------- HashMap ------------------>
+<div class="code-part"><h3 class="code-title">HashMap</h3>
+<p>A HashMap however, store items in "key/value" pairs, and you can access them by an index of another type (e.g. a String). <br>
+One object is used as a key (index) to another object (value). It can store different types: String keys and Integer values, or the same type, like: String keys and String values:</p>
+<pre class="code">
+import java.util.HashMap;
+    
+public class MyClass {
+    public static void main(String[] args) {
+ 
+        HashMap&lt;String, String> capitalCities = new HashMap&lt;String, String>();
+
+        // Add keys and values (Country, City)
+        capitalCities.put("England", "London");
+        capitalCities.put("Germany", "Berlin");
+        capitalCities.put("Norway", "Oslo");
+        capitalCities.put("USA", "Washington DC");
+        System.out.println(capitalCities);
+
+        capitalCities.get("England");
+
+        capitalCities.remove("England");
+
+        capitalCities.clear();
+
+        capitalCities.size();
+
+        // Print keys
+        for (String i : capitalCities.keySet()) {
+            System.out.println(i);  
+        }
+
+        // Print values
+        for (String i : capitalCities.values()) {
+            System.out.println(i);
+        }
+
+        // Print keys and values
+        for (String i : capitalCities.keySet()) {
+            System.out.println("key: " + i + " value: " + capitalCities.get(i));
+        }
+    }
+}
+</pre>
+</div>
+
+
+<!------------------- Hashset ------------------>
+<div class="code-part"><h3 class="code-title">Hashset</h3>
+<p>A HashSet is a collection of items where every item is unique, and it is found in the java.util package:</p>
+<pre class="code">
+import java.util.HashSet;
+
+public class MyClass {
+    public static void main(String[] args) {
+        HashSet&lt;String> cars = new HashSet&lt;String>();
+        cars.add("Volvo");
+        cars.add("BMW");
+        cars.add("Ford");
+        cars.add("BMW");
+        cars.add("Mazda");
+        System.out.println(cars);
+
+        cars.contains("Mazda");
+        cars.remove("Volvo");
+        cars.clear();
+        cars.size();
+
+        for (String i : cars) {
+            System.out.println(i);
+        }
+    }
+}
+</pre>
+</div>
+
+
+<!------------------- Iterators ------------------>
+<div class="code-part"><h3 class="code-title">Iterators</h3>
+<p>An Iterator is an object that can be used to loop through collections, like ArrayList and HashSet. It is called an "iterator" because "iterating" is the technical term for looping.</p>
+<pre class="code">
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class MyClass {
+    public static void main(String[] args) {
+        ArrayList&lt;Integer> numbers = new ArrayList&lt;Integer>();
+        numbers.add(12);
+        numbers.add(8);
+        numbers.add(2);
+        numbers.add(23);
+
+        Iterator&lt;Integer> it = numbers.iterator();
+        
+        while(it.hasNext()) {
+            Integer i = it.next();
+            if(i < 10) {
+                it.remove();
+            }
+        }
+        System.out.println(numbers);
+    }
+}
+</pre>
+</div>
+
+<!------------------- Exceptions - Try...Catch ------------------>
+<div class="code-part"><h3 class="code-title">Exceptions - Try...Catch</h3>
+<pre class="code">
+public class MyClass {
+    public static void main(String[] args) {
+        try {
+            int[] myNumbers = {1, 2, 3};
+            System.out.println(myNumbers[10]);
+        } catch (Exception e) {
+            System.out.println("Something went wrong.");
+        } finally {
+            System.out.println("The 'try catch' is finished.");
+        }
+    }
+}
+</pre>
+<p>The throw statement allows you to create a custom error. <br>
+        The throw statement is used together with an exception type. There are many exception types available in Java: ArithmeticException, FileNotFoundException, ArrayIndexOutOfBoundsException, SecurityException, etc:</p>
+<pre class="code">
+public class MyClass {
+    static void checkAge(int age) {
+        if (age < 18) {
+            throw new ArithmeticException("Access denied - You must be at least 18 years old.");
+        }
+        else {
+            System.out.println("Access granted - You are old enough!");
+        }
+    }
+    
+    public static void main(String[] args) {
+        checkAge(15); // Set age to 15 (which is below 18...)
+    }
+}
+</pre>
+</div>
+</div>
+</body>
+</html>
