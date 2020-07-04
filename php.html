@@ -158,7 +158,7 @@ $greeting2 = "$string1 $string2";
 </div>
 
 <!------------------- LOOPS ---------------------------->
-<div class="code-part"><h3 class="code-title">Loops (for, while, do while)</h3>
+<div class="code-part"><h3 class="code-title">Loops (for, while, do while, foreach)</h3>
 <p>while — Sets up conditions under which aloop executes </p>
 <pre class="code">
 $i = 0;
@@ -193,18 +193,18 @@ for($i = 5; $i <= 10; $i++){
 
 <p>forEach, for indexed arrays</p>
 <pre class="code">
-$people = array('Brad', 'Jose', 'William');
+$persons = array('Brad', 'Jose', 'William');
 
-foreach($people as $person){
-    echo $person;
+foreach($persons as $person){
+    echo $persons;
     echo '&lt;br&gt;';
 }
 </pre>
 <p>forEach, for associated arrays</p>
 <pre class="code">
-$people = array('Brad' => 'brad@gmail.com', 'Jose' => 'jose@gmail.com', 'William' => 'will@gmail.com');
+$persons = array('Brad' => 'brad@gmail.com', 'Jose' => 'jose@gmail.com', 'William' => 'will@gmail.com');
 
-foreach($people as $person => $email){
+foreach($persons as $person => $email){
     echo $person.': '.$email;
     echo '&lt;br&gt;';
 }
@@ -779,6 +779,31 @@ echo $userFour->username;
 
 <!------------------- PDO ------------------>
 <div class="code-part"><h3 class="code-title">PDO</h3>
+    <p>PDO w/ prepared statements</p>
+<pre class="code">
+$pdo = new PDO('mysql:host=localhost;dbname=test', 'root', '');
+$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+
+// 1. create Querry
+$querry = 'SELECT * FROM posts WHERE something = :something';  // or ?
+
+// 2. PREPARE Querry
+$stmt = $pdo->prepare($querry);
+
+// 3. EXECUTE Querry
+$stmt->execute(['something' => $something]);    // or [$something]
+
+// 4. get data(s)
+$datas = $stmt->fetchAll();
+foreach($datas as $data){
+    echo $data->something;
+}    
+
+//single data
+$singledata = $stmt->fetch();
+echo $singledata->something;
+</pre>
+<hr>
 <pre class="code">
 $host =  'localhost';
 $user = 'root';
@@ -791,8 +816,6 @@ $dsn = 'mysql:host='. $host .';dbname='. $dbname;
 
 // Create a PDO instance
 $pdo = new PDO($dsn, $user, $password);
-
-$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 </pre>
 <p>Querry</p>
 <pre class="code">
@@ -801,26 +824,23 @@ $stmt = $pdo->query('SELECT * FROM posts');
 while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
     echo $row['title'];
 }
-
-// set default fetch type
+</pre>
+<p>set default fetch type</p>
+<pre class="code"> 
 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 while($row = $stmt->fetch()){
     echo $row->title;
 }
 </pre>
-
 <p>PREPARED STATEMENTS (prepare & execute)</p>
-<p>User Input</p>
-<pre class="code">
+<p>Positional Params</p>
+<pre class="code"> 
+$sql = 'SELECT * FROM posts WHERE author = ? && is_published = ? LIMIT ?';
+
 $author = 'Brad';
 $is_published = true;
 $id = 1;
 $limit = 1;
-</pre>
-
-<p>Positional Params</p>
-<pre class="code">
-$sql = 'SELECT * FROM posts WHERE author = ? && is_published = ? LIMIT ?';
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$author, $is_published, $limit]);
@@ -829,39 +849,39 @@ $posts = $stmt->fetchAll();
 
 <p>GET ROW COUNT</p>
 <pre class="code">
-$sql = 'SELECT * FROM POSTS WHERE author = ?';
-
-$stmt = $pdo->prepare($sql);
-$stmt->execute([$author]);
-
 $postCount = $stmt->rowCount();
-    
-echo $postCount;
 </pre>
 
 <p>Named Params</p>
-<pre class="code">
-$sql = 'SELECT * FROM posts WHERE author = :author && is_published = :is_published';
-
-$stmt = $pdo->prepare($sql);
-$stmt->execute(['author' => $author, 'is_published' => $is_published]);
-$posts = $stmt->fetchAll();  
-
-var_dump($posts);
-foreach($posts as $post){
-    echo $post->title;
-}
-</pre>
-
-<p>FETCH SINGLE POST</p>
+<p>Single</p>
 <pre class="code">
 $sql = 'SELECT * FROM posts WHERE id = :id';
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute(['id' => $id]);
+
 $post = $stmt->fetch();
 
 echo $post->body;
+</pre>
+<p>Multiple</p>
+<pre class="code">
+$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); // for limit
+
+$sql = 'SELECT * FROM posts WHERE author = :author && is_published = :is_published';
+
+$author = 'Brad';
+$is_published = true;
+$id = 1;
+$limit = 1;
+
+$stmt = $pdo->prepare($sql);
+$stmt->execute(['author' => $author, 'is_published' => $is_published]);
+$posts = $stmt->fetchAll();  
+
+foreach($posts as $post){
+    echo $post->title;
+}
 </pre>
 
 <p>INSERT DATA</p>
@@ -874,8 +894,6 @@ $sql = 'INSERT INTO posts(title, body, author) VALUES(:title, :body, :author)';
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute(['title' => $title, 'body' => $body, 'author' => $author]);
-
-echo 'Post Added';    
 </pre>
 
 <p>UPDATE DATA</p>
@@ -887,8 +905,6 @@ $sql = 'UPDATE posts SET body = :body WHERE id = :id';
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute(['body' => $body, 'id' => $id]);
-
-echo 'Post Updated'
 </pre>
 
 <p>DELETE DATA</p>
@@ -899,8 +915,6 @@ $sql = 'DELETE FROM posts WHERE id = :id';
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute(['id' => $id]);
-
-echo 'Post Deleted';   
 </pre>
 
 <p>SEARCH DATA</p>
@@ -919,6 +933,493 @@ foreach($posts as $post){
 </pre>
 </div>
 
+<!------------------- PDO REST API ---------------------------->
+<div class="code-part"><h3 class="code-title">PDO REST API</h3>
+<p>Config: <b>Database.php</b></p>
+<pre class="code">
+class Database {
+    private $host = 'localhost';
+    private $db_name = 'myblog';
+    private $username = 'root';
+    private $password = '';
+    private $conn;
+
+    public function connect() {
+        $this->conn = null;
+
+        try { 
+            $this->conn = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->db_name, $this->username, $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        } catch(PDOException $e) {
+            echo 'Connection Error: ' . $e->getMessage();
+        }
+
+        return $this->conn;
+    } 
+}
+</pre>
+
+<p>Models: <b>Post.php</b></p>
+<pre class="code">
+class Post {
+    private $conn;
+    private $table = 'posts';
+
+    // Properties
+    public $id;
+    public $category_id;
+    public $category_name;
+    public $title;
+    public $body;
+    public $author;
+    public $created_at;
+
+    public function __construct($db) {
+        $this->conn = $db;
+    }
+
+
+    // Get All Posts
+    public function read() {
+        $query = 'SELECT 
+                        c.name as category_name, 
+                        p.id, 
+                        p.category_id, 
+                        p.title, 
+                        p.body, 
+                        p.author, 
+                        p.created_at
+                    FROM ' . $this->table . ' p
+                    LEFT JOIN categories c ON p.category_id = c.id
+                    ORDER BY p.created_at DESC';
+    
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        
+        return $stmt;
+    }
+
+    // Get Single Post
+    public function read_single() {
+        $query = 'SELECT 
+                        c.name as category_name, 
+                        p.id, 
+                        p.category_id, 
+                        p.title,
+                        p.body, 
+                        p.author, 
+                        p.created_at
+                    FROM ' . $this->table . ' p
+                    LEFT JOIN categories c ON p.category_id = c.id
+                    WHERE p.id = :id
+                    LIMIT 0,1';
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute(['id' => this->id]);
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Set properties
+        $this->title = $row['title'];
+        $this->body = $row['body'];
+        $this->author = $row['author'];
+        $this->category_id = $row['category_id'];
+        $this->category_name = $row['category_name'];
+    }
+
+    // Create Post
+    public function create() {
+        $query = 'INSERT INTO ' . $this->table . ' SET title = :title, body = :body, author = :author, category_id = :category_id';
+
+        $stmt = $this->conn->prepare($query);
+
+        // Clean data
+        $this->title = cleanData($this->title);
+        $this->body = cleanData($this->body);
+        $this->author = cleanData($this->author);
+        $this->category_id = cleanData($this->category_id);
+
+        // Bind data
+        $stmt->bindParam(':title', $this->title);
+        $stmt->bindParam(':body', $this->body);
+        $stmt->bindParam(':author', $this->author);
+        $stmt->bindParam(':category_id', $this->category_id);
+
+        // Execute query
+        if($stmt->execute(['title' => $this->title, 'body' => $this->body, 'author' => $this->author, 'category_id' => $this->category_id])) {
+            return true;
+        }
+
+        // Print error if something goes wrong
+        printf("Error: %s.\n", $stmt->error);
+
+        return false;
+    }
+
+    // Update Post
+    public function update() {
+        $query = 'UPDATE ' . $this->table . '
+                    SET title = :title, body = :body, author = :author, category_id = :category_id
+                    WHERE id = :id';
+
+        $stmt = $this->conn->prepare($query);
+
+        // Clean data
+        $this->title = cleanData($this->title);
+        $this->body = cleanData($this->body);
+        $this->author = cleanData($this->author);
+        $this->category_id = cleanData($this->category_id);
+        $this->id = cleanData($this->id);
+
+
+        if($stmt->execute(['title' => $this->title , 'body' => $this->body , 'author' => $this->author , 'category_id' => $this->category_id , 'id' => $this->id])) {
+            return true;
+        }
+
+        printf("Error: %s.\n", $stmt->error);
+
+        return false;
+    }
+
+    // Delete Post
+    public function delete() {
+        $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->id = cleanData($this->id);
+
+        if($stmt->execute([':id' => $this->id])) {
+            return true;
+        }
+
+        // Print error if something goes wrong
+        printf("Error: %s.\n", $stmt->error);
+
+        return false;
+    }
+    
+    function cleanData($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
+}
+</pre>
+<hr class="line">
+<p>interact with model</p>
+<p>model: <b>Post.php</b> - get all posts</p>
+<pre class="code">
+    public function read() {
+        $query = 'SELECT 
+                        c.name as category_name, 
+                        p.id, 
+                        p.category_id, 
+                        p.title, 
+                        p.body, 
+                        p.author, 
+                        p.created_at
+                    FROM ' . $this->table . ' p
+                    LEFT JOIN categories c ON p.category_id = c.id
+                    ORDER BY p.created_at DESC';
+    
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        
+        return $stmt;
+    }   
+</pre>
+<p>api: post: <b>read.php</b></p>
+<pre class="code">
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+
+include_once '../../config/Database.php';
+include_once '../../models/Post.php';
+
+// Instantiate DB & connect
+$database = new Database();
+$db = $database->connect();
+
+$post = new Post($db);
+
+$result = $post->read();
+
+$num = $result->rowCount();
+
+if($num > 0) {
+    $posts_arr = array();
+    // $posts_arr['data'] = array();
+
+    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        extract($row);  // to use $dataname
+
+        $post_item = array(
+            'id' => $id,
+            'title' => $title,
+            'body' => html_entity_decode($body),
+            'author' => $author,
+            'category_id' => $category_id,
+            'category_name' => $category_name
+        );
+
+        // Push to "data"
+        array_push($posts_arr, $post_item);
+        // array_push($posts_arr['data'], $post_item);
+    }
+
+    // Turn to JSON & output
+    echo json_encode($posts_arr);
+
+} else {
+    echo json_encode(array('message' => 'No Posts Found'));
+}
+</pre>
+<hr>
+<p>interact with model</p>
+<p>model: <b>Post.php</b> - get single post</p>
+<pre class="code">
+    public function read_single() {
+        $query = 'SELECT 
+                        c.name as category_name, 
+                        p.id, 
+                        p.category_id, 
+                        p.title,
+                        p.body, 
+                        p.author, 
+                        p.created_at
+                    FROM ' . $this->table . ' p
+                    LEFT JOIN categories c ON p.category_id = c.id
+                    WHERE p.id = :id
+                    LIMIT 0,1';
+
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute(['id' => $this->id]);
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Set properties
+        $this->title = $row['title'];
+        $this->body = $row['body'];
+        $this->author = $row['author'];
+        $this->category_id = $row['category_id'];
+        $this->category_name = $row['category_name'];
+    }
+</pre>
+<p>api: post: <b>read_single.php</b></p>
+<pre class="code">
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+
+include_once '../../config/Database.php';
+include_once '../../models/Post.php';
+
+$database = new Database();
+$db = $database->connect();
+
+$post = new Post($db);
+
+// Get ID
+$post->id = isset($_GET['id']) ? $_GET['id'] : die();
+
+// Get post
+$post->read_single();
+
+$post_arr = array(
+    'id' => $post->id,
+    'title' => $post->title,
+    'body' => $post->body,
+    'author' => $post->author,
+    'category_id' => $post->category_id,
+    'category_name' => $post->category_name
+);
+
+// Make JSON
+print_r(json_encode($post_arr));
+</pre>
+<hr>
+
+<p>interact with model</p>
+<p>model: <b>Post.php</b> - create post</p>
+<pre class="code">
+    public function create() {
+
+        $query = 'INSERT INTO ' . $this->table . ' SET title = :title, body = :body, author = :author, category_id = :category_id';
+
+        $stmt = $this->conn->prepare($query);
+
+        // Clean data
+        $this->title = cleanData($this->title);
+        $this->body = cleanData($this->body);
+        $this->author = cleanData($this->author);
+        $this->category_id = cleanData($this->category_id));
+
+        // Bind data
+        $stmt->bindParam(':title', $this->title);
+        $stmt->bindParam(':body', $this->body);
+        $stmt->bindParam(':author', $this->author);
+        $stmt->bindParam(':category_id', $this->category_id);
+
+        // Execute query
+        if($stmt->execute(['title' => $this->title, 'body' => $this->body, 'author' => $this->author, 'category_id' => $this->category_id])) {
+            return true;
+        }
+
+        // Print error if something goes wrong
+        printf("Error: %s.\n", $stmt->error);
+
+        return false;
+    }
+</pre>
+<p>api: post: <b>create.php</b></p>
+<pre class="code">
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
+
+include_once '../../config/Database.php';
+include_once '../../models/Post.php';
+
+// Instantiate DB & connect
+$database = new Database();
+$db = $database->connect();
+
+$post = new Post($db);
+
+// Get raw posted data
+$data = json_decode(file_get_contents("php://input"));
+
+$post->title = $data->title;
+$post->body = $data->body;
+$post->author = $data->author;
+$post->category_id = $data->category_id;
+
+// Create post
+if($post->create()) {
+    echo json_encode(array('message' => 'Post Created'));
+} else {
+    echo json_encode(array('message' => 'Post Not Created'));
+}
+</pre>
+
+<hr>
+<p>interact with model</p>
+<p>model: <b>Post.php</b> - update post</p>
+<pre class="code">
+    public function update() {
+        $query = 'UPDATE ' . $this->table . '
+                    SET title = :title, body = :body, author = :author, category_id = :category_id
+                    WHERE id = :id';
+
+        $stmt = $this->conn->prepare($query);
+
+        // Clean data
+        $this->title = cleanData($this->title);
+        $this->body = cleanData($this->body);
+        $this->author = cleanData($this->author);
+        $this->category_id = cleanData($this->category_id);
+        $this->id = cleanData($this->id);
+
+
+        if($stmt->execute(['title' => $this->title , 'body' => $this->body , 'author' => $this->author , 'category_id' => $this->category_id , 'id' => $this->id])) {
+            return true;
+        }
+
+        printf("Error: %s.\n", $stmt->error);
+
+        return false;
+</pre>
+<p>api: post: <b>update.php</b></p>
+<pre class="code">
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+header('Access-Control-Allow-Methods: PUT');
+header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
+
+include_once '../../config/Database.php';
+include_once '../../models/Post.php';
+
+// Instantiate DB & connect
+$database = new Database();
+$db = $database->connect();
+
+$post = new Post($db);
+
+// Get raw posted data
+$data = json_decode(file_get_contents("php://input"));
+
+// Set ID to update
+$post->id = $data->id;
+
+$post->title = $data->title;
+$post->body = $data->body;
+$post->author = $data->author;
+$post->category_id = $data->category_id;
+
+// Update post
+if($post->update()) {
+    echo json_encode(array('message' => 'Post Updated'));
+} else {
+    echo json_encode(array('message' => 'Post Not Updated'));
+}
+</pre>
+<hr>
+
+<p>interact with model</p>
+<p>model: <b>Post.php</b> - delete post</p>
+<pre class="code">
+    public function delete() {
+        $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->id = cleanData($this->id);
+
+        if($stmt->execute([':id' => $this->id])) {
+            return true;
+        }
+
+        // Print error if something goes wrong
+        printf("Error: %s.\n", $stmt->error);
+
+        return false;
+    } 
+</pre>
+<p>api: post: <b>delete.php</b></p>
+<pre class="code">
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+header('Access-Control-Allow-Methods: DELETE');
+header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
+
+include_once '../../config/Database.php';
+include_once '../../models/Post.php';
+
+// Instantiate DB & connect
+$database = new Database();
+$db = $database->connect();
+
+$post = new Post($db);
+
+// Get raw posted data
+$data = json_decode(file_get_contents("php://input"));
+
+// Set ID to update
+$post->id = $data->id;
+
+// Delete post
+if($post->delete()) {
+    echo json_encode(array('message' => 'Post Deleted'));
+} else {
+    echo json_encode(array('message' => 'Post Not Deleted'));
+}
+</pre>
+</div>
 </div>
 </body>
 </html>
